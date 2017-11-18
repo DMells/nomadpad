@@ -1,0 +1,37 @@
+{% extends "posts/base.html" %} 
+
+{% block content %}
+	<div class="Posts">
+		<h2> Latest posts </h2>
+		{% if latest_posts %}
+			{% for post in latest_posts %}
+				<a href=#><h3>{{post.title}}</h3></a>
+				<ul>{{post.summary}}</ul>
+				<ul>Posted : {{post.pub_date}}</ul>
+				<ul>
+					<em> Found in category : </em>
+					<a href=#>
+						{% for category in post.categories.all %}
+							{{category.title}} 
+						{% endfor %}
+					</a> 
+				</ul>
+				<ul>
+					<em>Authored by :</em>
+					<a href=#>{{post.author}}</a>
+				</ul>
+				Comments :
+				{% for comment in post.comment_set.all %}
+					<ol>
+						<li>{{comment.title}}</li>
+						<li>{{comment.body}}</li>
+						<li>{{comment.pub_date}}</li>
+						<li>{{comment.author}}</li>
+					</ol>	
+				{% endfor %}
+			
+			{% endfor %}
+		{% endif %}
+
+	</div>
+{% endblock content %}
