@@ -1,0 +1,3 @@
+21/11:
+Sort links/slugs to have posts set up properly: 
+/category/post_id

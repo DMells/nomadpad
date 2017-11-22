@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -22,12 +22,42 @@ def getAllPosts(request):
     'latest_posts':latest_posts,
     'comments':comments
     }
-
     return render(request, 'posts/getAllPosts.html', context)
 
-@login_required
-def home(request):
-    return render(request, 'registration/home.html')
+
+def getPost(request, pk):
+    post = Post.objects.get(pk=pk)
+    comments = Comment.objects.count()
+    context = {
+    'post':post,
+    'comments':comments
+    }
+    return render(request, 'posts/getPost.html', context)
+
+def getCategory(request, pk):
+    category = Category.objects.get(pk=pk)
+    context = {
+    'category':category
+    }
+    return render(request, 'categories/getCategory.html', context)
+
+# def getPost(request, postSlug):
+#     post = Post.objects.filter(slug=postSlug)
+#     context = {
+#     'post':post
+#     }
+#     return render(request, 'posts/getAllPosts.html', context)
+
+def getUserProfile(request):
+    profile = Profile.objects.all()
+
+    context = {
+    'profile':profile
+    }
+    return render(request, 'registration/profile.html', context)
+# @login_required
+# def home(request):
+#     return render(request, 'registration/home.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -42,3 +72,4 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+

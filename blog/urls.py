@@ -16,9 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from posts import views as core_views
 
-
+#django.conf.urls.include function, which is used to 
+# reference an external urls.py file
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^home/', include('posts.urls')),
-    url(r'^signup/$', core_views.signup, name='signup')
-    ]
+    url(r'^signup/', include('posts.urls')),
+    url(r'^profile/', include ('posts.urls'))
+     ]
