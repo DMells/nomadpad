@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post, Category, Comment, Profile
+from .models import Post, Category, Comment, Profile, User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -13,14 +13,14 @@ def getAllCategories(request):
 
     return render(request, 'categories/getAllCategories.html', context)
 
-def getAllPosts(request):
-
+def getAllPosts(request, author=False):
     latest_posts = Post.objects.all().order_by('-pub_date')
     comments = Comment.objects.all().order_by('-pub_date')
-
+    author_posts = latest_posts.filter(author=author)
     context = {
     'latest_posts':latest_posts,
-    'comments':comments
+    'comments':comments,
+    'author_posts':author_posts
     }
     return render(request, 'posts/getAllPosts.html', context)
 
@@ -55,6 +55,7 @@ def getUserProfile(request):
     'profile':profile
     }
     return render(request, 'registration/profile.html', context)
+
 # @login_required
 # def home(request):
 #     return render(request, 'registration/home.html')
@@ -73,3 +74,11 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+# def getAuthorPosts(request, author):
+#     latest_posts = Post.objects.all()
+#     author_posts = latest_posts.filter(author=author)
+#     context = {
+#     'latest_posts':latest_posts,
+#     'author_posts':author_posts
+#     }
+#     return render(request, 'posts/getAllPosts.html', context)

@@ -23,11 +23,11 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('posts.urls')),
-    url(r'^categories/', include('posts.urls')),
+    # url(r'^categories/', include('posts.urls')),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(r'^home/', include('posts.urls')),
-    url(r'^signup/', include('posts.urls')),
-    url(r'^profile/', include ('posts.urls'))
+    # url(r'^home/', include('posts.urls')),
+    # url(r'^signup/', include('posts.urls')),
+    # url(r'^profile/', include ('posts.urls'))
      ]
