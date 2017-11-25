@@ -3,6 +3,7 @@ from .models import Post, Category, Comment, Profile, User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ObjectDoesNotExist
 
 def getAllCategories(request):
     categories = Category.objects.all()
@@ -13,10 +14,14 @@ def getAllCategories(request):
 
     return render(request, 'categories/getAllCategories.html', context)
 
-def getAllPosts(request, author=False):
+def getAllPosts(request, pk=False):
     latest_posts = Post.objects.all().order_by('-pub_date')
     comments = Comment.objects.all().order_by('-pub_date')
-    author_posts = latest_posts.filter(author=author)
+    author_posts = User.objects.get(pk=pk)
+    author_posts = author_posts.post_set.all()
+    # if ObjectDoesNotExist(author_posts)
+    #     author_posts = False
+
     context = {
     'latest_posts':latest_posts,
     'comments':comments,
@@ -40,13 +45,6 @@ def getCategory(request, pk):
     'category':category
     }
     return render(request, 'categories/getCategory.html', context)
-
-# def getPost(request, postSlug):
-#     post = Post.objects.filter(slug=postSlug)
-#     context = {
-#     'post':post
-#     }
-#     return render(request, 'posts/getAllPosts.html', context)
 
 def getUserProfile(request):
     profile = Profile.objects.all()

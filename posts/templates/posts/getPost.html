@@ -7,11 +7,11 @@
 				<ul>Posted : {{post.pub_date}}</ul>
 				<ul>
 					<em> Found in category : </em>
-					<a href=#>
+					
 						{% for category in post.category_set.all %}
 							<a href=#>{{category}}</a>
 						{% endfor %}
-					</a> 
+				
 				</ul>
 				<ul>
 					<em>Written by :</em>

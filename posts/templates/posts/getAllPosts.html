@@ -18,8 +18,10 @@
 				</ul>
 				<ul>
 					<em>Authored by :</em>
-					<a href={% url 'getAuthorPosts' post.author.id %}>
+					<a href={% url 'grabAuthorPosts'  pk=post.author.id %}>
 					{{post.author}}</a>
+
+		
 				</ul>
 				Comments :
 				{% for comment in post.comment_set.all %}

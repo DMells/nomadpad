@@ -2,14 +2,17 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.getAllPosts, name ='getAllPosts'), # <- home page
+    url(r'^$', views.getAllPosts),
     url(r'^posts/$', views.getAllPosts, name ='getAllPosts'),
     url(r'^categories/$', views.getAllCategories, name = 'getAllCategories'),
     url(r'^profile/$', views.getUserProfile, name='getUserProfile'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^categories/(?P<pk>\d+)/$', views.getCategory, name='getCategory'),
     url(r'^posts/(?P<pk>\d+)/$', views.getPost, name='getPost'),
-    url(r'^posts/author/(?P<author>\d+)/$', views.getAllPosts, name='getAuthorPosts')
+    url(r'^author/(?P<pk>\d+)/$', views.getAllPosts, name='grabAuthorPosts')
+
+]
+
     # url(r'^categories/(?P<postSlug>[-a-zA-Z0-9]+)/?$', views.getPost, name='getPost') 
 
 
@@ -20,4 +23,3 @@ urlpatterns = [
     #Clicking on a link to a post will pass the post pk number to the url, which 
     # will be retrieved by the view and returned to the template.
     # url(r'^(?P<pk>\d+)/$', views.getCategory, name='getCategory')
-]
