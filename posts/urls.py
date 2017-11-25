@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^categories/(?P<pk>\d+)/$', views.getCategory, name='getCategory'),
     url(r'^posts/(?P<pk>\d+)/$', views.getPost, name='getPost'),
-    url(r'^author/(?P<pk>\d+)/$', views.getAllPosts, name='grabAuthorPosts')
+    url(r'^author/(?P<author>\d+)/$', views.getAuthorPosts, name='getAuthorPosts')
 
 ]
 

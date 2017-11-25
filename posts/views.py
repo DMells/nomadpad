@@ -14,23 +14,17 @@ def getAllCategories(request):
 
     return render(request, 'categories/getAllCategories.html', context)
 
-def getAllPosts(request, pk=False):
+def getAllPosts(request):
     latest_posts = Post.objects.all().order_by('-pub_date')
     comments = Comment.objects.all().order_by('-pub_date')
-    author_posts = User.objects.get(pk=pk)
-    author_posts = author_posts.post_set.all()
-    # if ObjectDoesNotExist(author_posts)
-    #     author_posts = False
-
     context = {
     'latest_posts':latest_posts,
-    'comments':comments,
-    'author_posts':author_posts
+    'comments':comments
     }
     return render(request, 'posts/getAllPosts.html', context)
 
 
-def getPost(request, pk):
+def getPost(request, pk=False):
     post = Post.objects.get(pk=pk)
     comments = Comment.objects.count()
     context = {
@@ -72,11 +66,11 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-# def getAuthorPosts(request, author):
-#     latest_posts = Post.objects.all()
-#     author_posts = latest_posts.filter(author=author)
-#     context = {
-#     'latest_posts':latest_posts,
-#     'author_posts':author_posts
-#     }
-#     return render(request, 'posts/getAllPosts.html', context)
+def getAuthorPosts(request, author=False):
+    latest_posts = Post.objects.all()
+    author_posts = latest_posts.filter(author=author)
+    context = {
+    'latest_posts':latest_posts,
+    'author_posts':author_posts
+    }
+    return render(request, 'posts/getAuthorPosts.html', context)

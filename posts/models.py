@@ -9,17 +9,13 @@ from django.db.models.signals import post_save
 class Category(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(blank=True, unique=True, max_length=100)
-
-
     # To effect informal rendering of fields, eg : from "<Model Object>" 
     # to "Title":
     def __str__(self):
         return self.title
-
     # Change the name in Admin from categorys to categories
     class Meta:
         verbose_name_plural = "categories"
-
      #Define the slug for URLs
     def slug(self):
         return slugify(self.title)

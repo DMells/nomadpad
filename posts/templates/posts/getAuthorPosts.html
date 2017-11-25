@@ -1,10 +1,11 @@
-{% extends "posts/base.html" %} 
+{% extends "posts/base.html" %}
+
 
 {% block content %}
 	<div class="Posts">
 		<h2> Latest posts </h2>
-		{% if latest_posts %}
-			{% for post in latest_posts %}
+		{% if author_posts %}
+			{% for post in author_posts %}
 				<a href={% url 'getPost' post.pk %}><h3>{{post.title}}</h3></a>
 				<ul>{{post.summary}}</ul>
 				<ul>Posted : {{post.pub_date}}</ul>
@@ -16,13 +17,7 @@
 						{% endfor %}
 					</a> 
 				</ul>
-				<ul>
-					<em>Authored by :</em>
-					<a href={% url 'getAuthorPosts' author=post.author.id %}>
-					{{post.author}}</a>
-
-		
-				</ul>
+				
 				Comments :
 				{% for comment in post.comment_set.all %}
 					<ol>
