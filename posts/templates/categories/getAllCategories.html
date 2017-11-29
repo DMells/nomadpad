@@ -5,12 +5,12 @@
 		{% for category in categories %}
 			<div>
 				<h3>
-					<a href={% url 'getCategory' category.pk %}>
+					<a href={% url 'getCategory' slug=category.slug %}>
 					{{ category.title }}</a>
 				</h3>
 				<ul>
 				{% for post in category.post_set.all|slice:":3" %}
-					<li><a href={% url 'getPost' post.pk %}>{{post.title}}</a></li> 
+					<li><a href={% url 'getPost' slug=post.slug %}>{{post.title}}</a></li> 
 						- {{post.summary}}
 
 			

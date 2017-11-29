@@ -5,12 +5,12 @@
 <div>
 	{{ category.title}}
 	{% for post in category.post_set.all %}
-				<a href={% url 'getPost' post.pk %}><h3>{{post.title}}</h3></a>
+				<a href={% url 'getPost' slug=post.slug %}><h3>{{post.title}}</h3></a>
 				<ul>{{post.summary}}</ul>
 				<ul>Posted : {{post.pub_date}}</ul>
 				<ul>
 					<em>Authored by :</em>
-					<a href=#>{{post.author}}</a>
+					<a href={% url 'getAuthorPosts' slug=post.slug %}>{{post.author}}</a>
 				</ul>
 				Comments :
 				{% for comment in post.comment_set.all %}

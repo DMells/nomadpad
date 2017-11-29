@@ -1,3 +1,12 @@
 21/11:
 Sort links/slugs to have posts set up properly: 
 /category/post_id
+
+25/11:
+Tailwind - css,
+
+26/11:
+Add post comments form above comments section.
+
+28/11:
+Add in a population script as per Tango with Django - ensures you can recreate your data automatically after a 

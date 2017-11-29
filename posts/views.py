@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Category, Comment, Profile, User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ObjectDoesNotExist
+
 
 def getAllCategories(request):
     categories = Category.objects.all()
@@ -23,9 +24,8 @@ def getAllPosts(request):
     }
     return render(request, 'posts/getAllPosts.html', context)
 
-
-def getPost(request, pk=False):
-    post = Post.objects.get(pk=pk)
+def getPost(request, slug):
+    post = Post.objects.get(slug=slug)
     comments = Comment.objects.count()
     context = {
     'post':post,
@@ -33,8 +33,8 @@ def getPost(request, pk=False):
     }
     return render(request, 'posts/getPost.html', context)
 
-def getCategory(request, pk):
-    category = Category.objects.get(pk=pk)
+def getCategory(request, slug):
+    category = Category.objects.get(slug=slug)
     context = {
     'category':category
     }
@@ -66,11 +66,11 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-def getAuthorPosts(request, author=False):
-    latest_posts = Post.objects.all()
-    author_posts = latest_posts.filter(author=author)
+def getAuthorPosts(request, slug):
+    author_posts = Post.objects.filter(slug=slug)
+    # author_posts = author_posts.filter(slug=slug)
+    
     context = {
-    'latest_posts':latest_posts,
-    'author_posts':author_posts
+        'author_posts':author_posts
     }
     return render(request, 'posts/getAuthorPosts.html', context)

@@ -8,16 +8,17 @@
 				<ul>
 					<em> Found in category : </em>
 					
-						{% for category in post.category_set.all %}
-							<a href=#>{{category}}</a>
+						{% for category in post.category.all %}
+							<a href=#>{{category.title}}</a>
 						{% endfor %}
-				
 				</ul>
 				<ul>
 					<em>Written by :</em>
-					<a href=#>{{post.author}}</a>
+				<a href={% url 'getAuthorPosts' slug=post.author %}>
+					{{post.author}}</a>
 				</ul>
 				{% if post.comment_set.count %}
+				
 				Comments :
 				{% for comment in post.comment_set.all %}
 					<ol>
@@ -26,11 +27,11 @@
 						<br>
 						{{comment.pub_date}}
 						<br>
-						By - <a href=#>{{comment.author}}</a>
+						By - <a href={% url 'getAuthorPosts' slug=post.author %}>{{comment.author}}</a>
 					</ol>	
 				{% endfor %}
 				{% else %}
-				<h1>No comments to display</h1>
+				<h4>No comments to display</h4>
 				{% endif %}
 </div>
 {% endblock %}
