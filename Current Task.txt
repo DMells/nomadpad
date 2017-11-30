@@ -20,3 +20,6 @@ Add in a population script as per Tango with Django - ensures you can recreate y
 - likes counter
 - stackoverflow style points system
 
+30/11:
+for posts with multiple categories, add commas in between the 'found in' bits to separate each category named.
+

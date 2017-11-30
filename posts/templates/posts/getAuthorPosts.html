@@ -12,8 +12,8 @@
 				
 				<ul>
 					<em> Found in category : </em>
-					{% for category in post.category_set.all %}
-					<a href=#>
+					{% for category in post.category.all %}
+					<a href={% url 'getCategory' slug=category.slug %}>
 							{{category.title}} 
 					{% endfor %}
 					</a> 
