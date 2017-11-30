@@ -9,4 +9,14 @@ Tailwind - css,
 Add post comments form above comments section.
 
 28/11:
-Add in a population script as per Tango with Django - ensures you can recreate your data automatically after a 
+Add in a population script as per Tango with Django - ensures you can recreate your data automatically after a migration
+
+29/11:
+- Main page needs comments limiting to i.e. just 3, or a count of the comments, or removal of comments totally.
+- Facebook-comment api as seen : https://www.thepoortraveler.net/2017/10/make-money-travel/
+-instagram collage as per https://www.thepoortraveler.net/2017/10/make-money-travel/
+- newsletter sign up
+- view counter
+- likes counter
+- stackoverflow style points system
+

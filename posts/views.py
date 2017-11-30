@@ -67,7 +67,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 def getAuthorPosts(request, slug):
-    author_posts = Post.objects.filter(slug=slug)
+    author_posts = Post.objects.get(slug=slug)
     # author_posts = author_posts.filter(slug=slug)
     
     context = {

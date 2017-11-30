@@ -3,9 +3,7 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
-from autoslug import AutoSlugField
 
-# The categories model within which are tagged posts
 class Category(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(blank=True, unique=True)
@@ -13,17 +11,14 @@ class Category(models.Model):
     # to "Title":
     def __str__(self):
         return self.title
-    # Change the name in Admin from categorys to categories
+
     class Meta:
         verbose_name_plural = "categories"
-     #Define the slug for URLs
+
     def save(self,*args, **kwargs):
         self.slug = slugify(self.title)
         super(Category, self).save(*args, **kwargs)
-    # def slug(self):
-    #     return slugify(self.title)
 
-# The main posts model
 class Post(models.Model):
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=500, default=True)
@@ -39,11 +34,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-   
-    # def get_absolute_url(self):
-    #       return reverse("posts:getPosturl", kwargs={ "slug": self.slug })
 
-# # The comments model for user to post comments
 class Comment(models.Model):
     post = models.ForeignKey(Post)
     title = models.CharField(max_length=200)
@@ -66,8 +57,7 @@ class Profile(models.Model):
         super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
    
     # itinerary = models.ForeignKey(itinerary) - potential to link user 
     # profiles to a world map - where are my users travelling now? etc,
-    

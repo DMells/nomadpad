@@ -9,11 +9,11 @@
 				<ul>{{post.summary}}</ul>
 				<ul>Posted : {{post.pub_date}}</ul>
 				<ul>
-					<em> Found in category : </em>
+					<em> Found in: </em>
 					
-						{% for category in post.post_category.all %}
-						<a href={% url 'getAllCategories' slug=category.slug%}>
-							{{category.title}} 
+						{% for category in post.category.all %}
+						<a href={% url 'getCategory' slug=category.slug%}>
+							{{category.title}}
 						{% endfor %}
 					</a> 
 				</ul>
@@ -26,14 +26,14 @@
 				</ul>
 				Comments :
 				{% for comment in post.comment_set.all %}
-					<ol>
+					<ul>
 						<li>{{comment.title}}</li>
 						<li>{{comment.body}}</li>
 						<li>{{comment.pub_date}}</li>
 						<li>
 						{{comment.author}}
 					</li>
-					</ol>	
+					</ul>	
 				{% endfor %}
 			
 			{% endfor %}

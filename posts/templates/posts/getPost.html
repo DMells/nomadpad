@@ -9,7 +9,7 @@
 					<em> Found in category : </em>
 					
 						{% for category in post.category.all %}
-							<a href=#>{{category.title}}</a>
+							<a href={% url 'getCategory' slug=category.slug %}>{{category.title}}</a>
 						{% endfor %}
 				</ul>
 				<ul>
