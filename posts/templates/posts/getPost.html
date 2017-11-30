@@ -14,9 +14,11 @@
 				</ul>
 				<ul>
 					<em>Written by :</em>
-				<a href={% url 'getAuthorPosts' slug=post.author %}>
+					
+				<a href={% url 'getAuthorPosts' slug=post.authorSlug %}>
 					{{post.author}}</a>
 				</ul>
+				
 				{% if post.comment_set.count %}
 				
 				Comments :
@@ -27,7 +29,7 @@
 						<br>
 						{{comment.pub_date}}
 						<br>
-						By - <a href={% url 'getAuthorPosts' slug=post.author %}>{{comment.author}}</a>
+						By - <a href={% url 'getAuthorPosts' slug=post.authorSlug %}>{{comment.author}}</a>
 					</ol>	
 				{% endfor %}
 				{% else %}

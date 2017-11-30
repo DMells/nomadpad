@@ -6,7 +6,7 @@
 		<h2> Latest posts </h2>
 		{% if author_posts %}
 			{% for post in author_posts %}
-				<a href={% url 'getPost' pk %}><h3>{{post.title}}</h3></a>
+				<a href={% url 'getPost' slug=post.titleSlug %}><h3>{{post.title}}</h3></a>
 				<ul>{{post.summary}}</ul>
 				<ul>Posted : {{post.pub_date}}</ul>
 				
@@ -27,7 +27,7 @@
 						<li>{{comment.body}}</li>
 						<li>{{comment.pub_date}}</li>
 						<li>
-						By - <a href={% url 'getAuthorPosts' slug=post.author %}>{{comment.author}}</a>
+						{# By - <a href={% url 'getAuthorPosts' %}>{{comment.author}}</a> #}
 					</li>
 					</ol>	
 				{% endfor %}

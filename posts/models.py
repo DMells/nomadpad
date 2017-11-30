@@ -15,9 +15,10 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
-    def save(self,*args, **kwargs):
+    def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Category, self).save(*args, **kwargs)
+  
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -26,11 +27,15 @@ class Post(models.Model):
     pub_date = models.DateTimeField(default=timezone.now)
     category = models.ManyToManyField('Category')
     author = models.ForeignKey(User, default=True)
-    slug = models.SlugField(blank=True, unique=True)
-   
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+    titleSlug = models.SlugField(blank=True)
+    authorSlug = models.SlugField(blank=True)
+
+    def save(self,*args, **kwargs):
+        self.titleSlug = slugify(self.title)
+        self.authorSlug = slugify(self.author)
         super(Post, self).save(*args, **kwargs)
+   
+
 
     def __str__(self):
         return self.title
@@ -52,12 +57,13 @@ class Profile(models.Model):
     birth_date = models.DateField(null=True, blank=True)
     slug = models.SlugField(unique=True, default='')
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.user)
-        super(Profile, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.user.username)
+    #     super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return str(self.user)
+        # return str(self.user)
+        return self.user
    
     # itinerary = models.ForeignKey(itinerary) - potential to link user 
     # profiles to a world map - where are my users travelling now? etc,

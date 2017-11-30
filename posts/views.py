@@ -25,7 +25,7 @@ def getAllPosts(request):
     return render(request, 'posts/getAllPosts.html', context)
 
 def getPost(request, slug):
-    post = Post.objects.get(slug=slug)
+    post = Post.objects.get(titleSlug=slug)
     comments = Comment.objects.count()
     context = {
     'post':post,
@@ -67,8 +67,10 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 def getAuthorPosts(request, slug):
-    author_posts = Post.objects.get(slug=slug)
-    # author_posts = author_posts.filter(slug=slug)
+    author_posts = Post.objects.all()
+    author_posts = author_posts.filter(authorSlug=slug)
+    
+    
     
     context = {
         'author_posts':author_posts

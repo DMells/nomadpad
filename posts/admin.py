@@ -1,17 +1,16 @@
 from django.contrib import admin
 
 from .models import Post, Category, Comment, Profile
-
 # This automatically populates the slug field in the admin panel when it is saved.
 # Saves me from having to type it in each time.
 class PostAdmin(admin.ModelAdmin):
-  prepopulated_fields = {"slug": ("title",)}
+  prepopulated_fields = {
+  	"titleSlug": ("title",), "authorSlug":("author",),
+  }
 
 class CategoryAdmin(admin.ModelAdmin):
   prepopulated_fields = {"slug": ("title",)}
 
-class ProfileAdmin(admin.ModelAdmin):
-  prepopulated_fields = {"slug": ("slug",)}  
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
