@@ -44,11 +44,17 @@ class Comment(models.Model):
     post = models.ForeignKey(Post)
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField(default=timezone.now)
-    body = models.TextField()
+    body = models.CharField(max_length=200)
     author = models.ForeignKey(User, default=True)
+    approved_comment = models.BooleanField(default=True)
 
     def __str__(self):
+        self.save()
         return self.title
+
+    def approve(self):
+        self.approved_comment = True
+        
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -56,14 +62,15 @@ class Profile(models.Model):
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     slug = models.SlugField(unique=True, default='')
-
+    profile_picture = models.ImageField(upload_to='profile_images', blank=True)
+# blank = True means the user doesn't have to input to this field if they dont want to.
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.user.username)
     #     super(Profile, self).save(*args, **kwargs)
 
     def __str__(self):
         # return str(self.user)
-        return self.user
+        return self.user.username
    
     # itinerary = models.ForeignKey(itinerary) - potential to link user 
     # profiles to a world map - where are my users travelling now? etc,

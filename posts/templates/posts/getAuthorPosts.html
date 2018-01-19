@@ -20,14 +20,13 @@
 				</ul>
 
 				{% if post.comment_set.all %}
-				Comments :
+				Comments:
 				{% for comment in post.comment_set.all %}
 					<ol>
 						<li>{{comment.title}}</li>
 						<li>{{comment.body}}</li>
 						<li>{{comment.pub_date}}</li>
 						<li>
-						{# By - <a href={% url 'getAuthorPosts' %}>{{comment.author}}</a> #}
 					</li>
 					</ol>	
 				{% endfor %}

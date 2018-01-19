@@ -2,9 +2,6 @@
 25/11:
 Tailwind - css,
 
-26/11:
-Add post comments form above comments section.
-
 28/11:
 Add in a population script as per Tango with Django - ensures you can recreate your data automatically after a migration
 
@@ -20,8 +17,33 @@ Add in a population script as per Tango with Django - ensures you can recreate y
 30/11:
 for posts with multiple categories, add commas in between the 'found in' bits to separate each category named.
 
+27/12:
+Add 'cards' as a css style for the blog posts. https://tailwindcss.com/docs/examples/cards
+Perhaps use the horizontal style.
+
+1/1/18:
+Add javascript to make login/logout appear/hide as needed, depending on whether the user is logged in.
+
+1/1/18:
+Add insert img field to the admin site, so you can add a thumbnail img when creating posts.
+
+3/1/18:
+see mindvalleyacademy.com for great landing page intro
+
+13/1/18:
+Days on the road counter
+
+
 
 *****COMPLETED*****
 {# 21/11:
 Sort links/slugs to have posts set up properly: 
 /category/post_id #}
+
+{# *****26/11:****
+Add post comments form above comments section.
+Forms: what do i need?
+Comments form - so users can post their own comments - should i just use the facebook comments widget? #}
+
+{# 18/12:
+Add in a categories side bar, which highlights which category you're in (bold) see tango with django location 2484 #}

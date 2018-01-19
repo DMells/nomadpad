@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Category, Comment, Profile, User
-from django.contrib.auth.decorators import login_required
+from .models import Post, Category, Comment, Profile
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.core.exceptions import ObjectDoesNotExist
+from .forms import CommentForm
 
 
 def getAllCategories(request):
@@ -70,9 +69,22 @@ def getAuthorPosts(request, slug):
     author_posts = Post.objects.all()
     author_posts = author_posts.filter(authorSlug=slug)
     
-    
-    
     context = {
         'author_posts':author_posts
     }
     return render(request, 'posts/getAuthorPosts.html', context)
+
+def add_comment_to_post(request, slug):
+    post = get_object_or_404(Post, titleSlug=slug)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('getPost', slug)
+    else:
+        form = CommentForm()
+
+    return render(request, 'comments/add_comment_to_post.html', {'form':form})
+

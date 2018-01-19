@@ -1,27 +1,54 @@
+{% load staticfiles %}
+{% load template_tags %}
+
 <html>
  	<head>
-
+ 		<title>Nomad Pad</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="./blog.css" >
  	</head>
 
-    <body>
-    	<div class="topblock">
-    		<div class ="header">
-    			<h3>Welcome to the NomadPad</h3>
-    			<h4> Go Global</h4>
-    			
-    		</div>
-		    <div class="links">
-		    	<a href={% url 'home' %}>Home</a>
-		    	<a href={% url 'getAllCategories'%}>Categories</a>
-		    	<a href="#">About</a>
-	    		<a href="#">Affiliates</a>
-	    		<a href="#">Contact Me</a>
+    <body class="sans">
+ 	  	<header class="flex border bg-blue text-white">
+    		<div class=" flex  w-1/2">
+    			<div class=" w-1/2">
+    				<h3 class=" text-5xl">nomadpad</h3>
+    				<h4 class=" text-red-darkest text-base"> (Take a load off) </h4>
+    			</div>
+    				
+		   		<div class="flex text-3xl items-center w-1/2 justify-center p-4">
+		    		<a class="text-white" href={% url 'home' %}> Home </a>
+		    		•
+		    		<a class="text-white" href={% url 'getAllCategories'%}> Categories </a>
+	    		</div>
 	    	</div>
-	    </div>	    
-	        {% block content %}
-	        {% endblock %}
-	    
-	    
+
+	    	<div class="flex items-center  text-3xl w-1/2 justify-end p-4">
+	    		<a class="text-white" href=#> Login </a>
+	    		•
+	    		<a class="text-white" href=#> Logout </a> 
+	    		•
+	    		<a class="text-white" href=#> Sign-Up </a>
+	    	</div>
+	    </header>	   
+		    	
+		    <div>
+		  		<img src="static/images/Plitvice_Sunshine.jpg" class="w-auto h-auto">
+		    </div>
+		    <div class="flex">
+		    	<div class=" flex-block border w-4/5 justify-center">
+		        	{% block content %}
+		        	{% endblock %}
+		    	</div>
+		    	<div class="border w-1/5">
+	    			{% block sidebar_block %}
+	    				{% get_category_list category %}
+	    			{% endblock %}
+	    		</div>
+		    </div>
+	    <div class="footer">
+	    </div>
     </body>
 </html>
 

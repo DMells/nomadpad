@@ -1,0 +1,17 @@
+{% block sidebar_block %}
+	{% for c in cats %}
+		{% if c == selected_cat %}
+			<li>
+				<strong>
+					<a href="{% url 'getCategory' c.slug %}">
+					{{ c.title }}</a>
+				</strong>
+			</li>	
+		{% else %}
+			<li>
+					<a href="{% url 'getCategory' c.slug %}">
+					{{ c.title }}</a>
+			</li>	
+		{% endif %}
+	{% endfor %}
+{% endblock sidebar_block %}
