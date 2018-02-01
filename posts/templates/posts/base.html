@@ -9,14 +9,14 @@
  	</head>
 
     <body class="sans">
- 	  	<header class="flex border bg-blue text-white">
+ 	  	<header class="flex border bg-blue-light text-white">
     		<div class=" flex  w-1/2">
     			<div class=" w-1/2">
-    				<h3 class=" text-4xl">nomadpad</h3>
+    				<h3 class=" text-4xl">...nomad pad</h3>
     			</div>
 	    	</div>
 
-	    	<div class="flex items-center  text-3l w-1/2 justify-end p-4">
+	    	<div class=" invisible flex items-center  text-3l w-1/2 justify-end p-4">
 	    		<a class="text-white" href=# style="text-decoration:none"> Login </a>
 	    		•
 	    		<a class="text-white" href=# style="text-decoration:none"> Logout </a> 
@@ -26,23 +26,24 @@
 	    </header>	   
 		    	
 		    <div>
-		  		<img src="static/images/Plitvice_Sunshine.jpg" class="w-auto h-auto">
+		  		<img src="static/images/Plitvice_Sunshine.jpg" class="w-auto h-auto mb-6 shadow-lg rounded">
 		    </div>
-		    <div class="flex">
-		    	<div class=" flex-block border w-4/5">
-		        	{% block content %}
-		        	{% endblock %}
-		    	</div>
-		    	<div class="border w-1/5">
-	    			{% block sidebar_block %}
-	    				{% get_category_list category %}
-	    			{% endblock %}
-	    		</div>
-		    </div>
+		    <div class=" flex-col justify-end w-4/5">
+		       	{% block content %}
+		       	{% endblock %}
+		   	</div>
+		   	<div class=" invisible border w-1/5">
+	   			{% block sidebar_block %}
+	   				{% get_category_list category %}
+	   			{% endblock %}
+	   		</div>
+		    
 	    <div class="footer">
 	    </div>
     </body>
 </html>
+
+
 
 {# <h3>Wherever you are, you're always at home</h3> #}
 {# <h4>The world, today. Always</h4> #}
