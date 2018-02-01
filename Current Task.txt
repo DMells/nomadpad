@@ -33,6 +33,9 @@ see mindvalleyacademy.com for great landing page intro
 13/1/18:
 Days on the road counter
 
+30/1/18:
+see booking.com for javascript movement of each property when you mouse over it.
+
 
 
 *****COMPLETED*****
