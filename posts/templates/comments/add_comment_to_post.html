@@ -1,5 +1,6 @@
 {% extends "../posts/base.html" %}
-
+{% load static %}
+{% load template_tags %}
 {% block content %}
     <h1>New comment</h1>
     <form method="POST" class="comment-form">{% csrf_token %}

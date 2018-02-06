@@ -1,14 +1,18 @@
+<!DOCTYPE html>
 {% extends "posts/base.html" %} 
+{% load static %}
 
+{% load template_tags %}
 {% block content %}	
-
 {% if latest_posts %}
 	{% for post in latest_posts %}
 	<div class="flex justify-center"> {# To align the cards to the middle #}
 <div class="max-w-sm rounded overflow-hidden shadow-lg mb-6 my-6  ml-6">
   <a href="{% url 'getPost' slug=post.titleSlug %}">
-  		<img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
+  		<img src="{{ MEDIA.URL }} {{post.image.url}}" alt="image-{{post.title}}"/>
+  		
    </a>
+
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">		
     	      	<a href={% url 'getPost' slug=post.titleSlug %} >

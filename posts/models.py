@@ -29,14 +29,13 @@ class Post(models.Model):
     author = models.ForeignKey(User, default=True)
     titleSlug = models.SlugField(blank=True)
     authorSlug = models.SlugField(blank=True)
+    image = models.ImageField(upload_to="images/%Y/%m/%d", null=True)
 
-    def save(self,*args, **kwargs):
+    def save(self, *args, **kwargs):
         self.titleSlug = slugify(self.title)
         self.authorSlug = slugify(self.author)
         super(Post, self).save(*args, **kwargs)
    
-
-
     def __str__(self):
         return self.title
 

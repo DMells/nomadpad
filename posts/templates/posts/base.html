@@ -1,18 +1,20 @@
-{% load staticfiles %}
+<!DOCTYPE html>
+{% load static %}
 {% load template_tags %}
 
 <html>
- 	<head>
+ 	<head lang="en">
+ 		<meta charset="UTF-8" />
  		<title>Nomad Pad</title>
  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
 
  	</head>
 
-    <body class="sans">
+    
  	  	<header class="flex border bg-blue-light text-white">
     		<div class=" flex  w-1/2">
     			<div class=" w-1/2">
-    				<h3 class=" text-4xl">...nomad pad</h3>
+    				<h3 class="text-4xl">...nomad pad</h3>
     			</div>
 	    	</div>
 
@@ -24,9 +26,9 @@
 	    		<a class="text-white" href=# style="text-decoration:none"> Sign-Up </a>
 	    	</div>
 	    </header>	   
-		    	
+	<body class="sans">	    	
 		    <div>
-		  		<img src="static/images/Koh_Kood.jpg" class="w-auto h-auto mb-6 shadow-lg rounded">
+		  		<img src="{% static "images/Plitvice_Lakes.jpg" %}" class="w-auto h-auto mb-6 shadow-lg rounded">
 		    </div>
 		    <div class=" flex-col justify-end w-4/5">
 		       	{% block content %}
