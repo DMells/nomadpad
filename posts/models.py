@@ -29,7 +29,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, default=True)
     titleSlug = models.SlugField(blank=True)
     authorSlug = models.SlugField(blank=True)
-    image = models.ImageField(upload_to="images/%Y/%m/%d", null=True)
+    mainimage = models.ImageField(upload_to="images/%Y/%m/%d", null=True)
+    postimage1 = models.ImageField(upload_to="images/%Y/%m/%d", null=True, blank=True)
+    postimage2 = models.ImageField(upload_to="images/%Y/%m/%d", null=True, blank=True)
+    postimage3 = models.ImageField(upload_to="images/%Y/%m/%d", null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.titleSlug = slugify(self.title)

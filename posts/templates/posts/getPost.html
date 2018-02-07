@@ -4,26 +4,28 @@
 
 {% block content %}
 
-<div class="Posts">
-	<h3>{{post.title}}</h3>
-	<ul>
-		<li>{{post.summary}}</li>
-		<li>{{post.body}}</li>
-	</ul>
+<div class="flex-col w-full border font-sans">
+	<h3 class="text-3xl text-center">{{post.title}}</h3>
+	
+		<br>
+		<div class="tracking-wide text-center">{{post.summary}}</div>
+		<br><br>
+		{{post.body|safe}}
+
+<br><br><br><br>
+<div class="invisible text-left flex-col">	
 	Posted : {{post.pub_date}}
-	<ul>
+<br>
 	<em> Found in category : </em>
-					
 		{% for category in post.category.all %}
 			<a href={% url 'getCategory' slug=category.slug %}>{{category.title}}</a>
 		{% endfor %}
-	</ul>
-	<ul>
+<br>		
 		<em>Written by :</em>	
 		<a href={% url 'getAuthorPosts' slug=post.authorSlug %}>
 			{{post.author}}</a>
-		</ul>
-
+	
+<br>
 	Comments :
 	<br>
 	<a class="btn btn-default" href={% url 'add_comment_to_post' slug=post.titleSlug %}>Add comment</a>
@@ -42,4 +44,5 @@
 					<h4>No comments to display</h4>
 					{% endif %}
 </div>
+
 {% endblock %}
