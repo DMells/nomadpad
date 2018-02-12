@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load template_tags %}
-
+{% load static %}
 <html>
  	<head lang="en">
  		<meta charset="UTF-8" />
  		<title>Nomad Pad</title>
- <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
 
  	</head>
 
@@ -14,7 +18,7 @@
  	  	<header class="flex border bg-blue-light text-white">
     		<div class=" flex  w-1/2">
     			<div class=" w-1/2">
-    				<h3 class="text-4xl">...nomad pad</h3>
+    				<h3 class="text-4xl"><a class="no-underline hover:underline text-blue-dark" href={% url "home" %}>.nomadpad</a></h3>
     			</div>
 	    	</div>
 
@@ -26,11 +30,11 @@
 	    		<a class="text-white" href=# style="text-decoration:none"> Sign-Up </a>
 	    	</div>
 	    </header>	   
-	<body class="sans">	    	
-		    <div>
-		  		<img src="{% static "images/Plitvice_Lakes.jpg" %}" class="w-auto h-auto mb-6 shadow-lg rounded">
-		    </div>
-		    <div class=" flex-wrap justify-end w-4/5">
+	<body class="sans">
+			<div>
+				
+			</div>
+		    <div class=" flex-wrap justify-end w-full p-6 m-auto border">
 		       	{% block content %}
 		       	{% endblock %}
 		   	</div>
@@ -43,10 +47,14 @@
 	    <div class="footer">
 	    </div>
     </body>
+
+
 </html>
 
-
-
+{# {% block image %} #}
+				{# <img src="{% static "images/Plitvice_Lakes.jpg" %}" class="w-auto h-auto mb-6 shadow-lg rounded"> #}
+				{# {% endblock %} #}
+   
 {# <h3>Wherever you are, you're always at home</h3> #}
 {# <h4>The world, today. Always</h4> #}
 {# <h4>No affiliates. The world's first data-driven travel guru.</h4> #}

@@ -2,8 +2,11 @@
 {% extends "posts/base.html" %} 
 {% load static %}
 {% load template_tags %}
-{% block content %}	
+{% block image %}
+{% endblock %}
 
+
+{% block content %}	
 {% if latest_posts %}
 	{% for post in latest_posts %}
    
@@ -11,12 +14,11 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg mb-6 my-6  ml-6">
   <a href="{% url 'getPost' slug=post.titleSlug %}">
   		<img src="{{ MEDIA.URL }} {{post.mainimage.url}}" alt="image-{{post.title}}"/>
-  		
    </a>
 
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">		
-    	      	<a href={% url 'getPost' slug=post.titleSlug %} >
+    <div class="font-bold text-xl mb-2 ">		
+    	      	<a class="no-underline hover:underline" href={% url 'getPost' slug=post.titleSlug %} >
 			      		<h3>{{post.title}}</h3>
 		      	</a>
 	</div>

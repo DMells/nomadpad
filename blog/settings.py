@@ -21,15 +21,41 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '/posts/static')
 
-MEDIA_DIR = os.path.join(BASE_DIR, 'posts/media')
+MEDIA_DIR = os.path.join(BASE_DIR, '/posts/media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+          "removePlugins": "stylesheetparser",
+           'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            # your extra plugins here
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            # 'devtools',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath',
+            
 
-
+        ]),
+    },
+}
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -54,6 +80,7 @@ INSTALLED_APPS = [
     'posts',
     'social_django',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -163,5 +190,10 @@ SOCIAL_AUTH_TWITTER_SECRET = 'uOQlpFu2fw4lM1SdKFAUk51gUMcwMnEbmc1ObHI4TBwURHFbJx
 SOCIAL_AUTH_FACEBOOK_KEY = '146452232664041'
 SOCIAL_AUTH_FACEBOOK_SECRET = '6cba8c0697f86df0f59cc4d8492573b7'
 
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
+
+###################################
 
 

@@ -28,7 +28,8 @@ urlpatterns = [
     url(r'', include('posts.urls')),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^oauth/', include('social_django.urls', namespace='social'))
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

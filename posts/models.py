@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Category(models.Model):
     title = models.CharField(max_length=200)
@@ -23,16 +24,13 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=500, default=True)
-    body = models.TextField()
+    body = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)
     category = models.ManyToManyField('Category')
     author = models.ForeignKey(User, default=True)
     titleSlug = models.SlugField(blank=True)
     authorSlug = models.SlugField(blank=True)
     mainimage = models.ImageField(upload_to="images/%Y/%m/%d", null=True)
-    postimage1 = models.ImageField(upload_to="images/%Y/%m/%d", null=True, blank=True)
-    postimage2 = models.ImageField(upload_to="images/%Y/%m/%d", null=True, blank=True)
-    postimage3 = models.ImageField(upload_to="images/%Y/%m/%d", null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.titleSlug = slugify(self.title)
