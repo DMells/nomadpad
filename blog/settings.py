@@ -23,7 +23,7 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '/posts/static')
 
-MEDIA_DIR = os.path.join(BASE_DIR, '/posts/media')
+MEDIA_DIR = os.path.join(BASE_DIR, 'posts/media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
@@ -32,29 +32,14 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-          "removePlugins": "stylesheetparser",
-           'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
-            # your extra plugins here
-            'div',
-            'autolink',
-            'autoembed',
-            'embedsemantic',
-            'autogrow',
-            # 'devtools',
-            'widget',
-            'lineutils',
-            'clipboard',
-            'dialog',
-            'dialogui',
-            'elementspath',
-            
-
-        ]),
-    },
+        'extraPlugins' : 'image2',
+        
+    }
 }
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/

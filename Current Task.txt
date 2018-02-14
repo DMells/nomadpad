@@ -39,6 +39,13 @@ see booking.com for javascript movement of each property when you mouse over it.
 7/2/18 : 
 add next and prev post buttons - see tailwind buttons page
 
+13/2/18:
+Add a "who ive met so far - and where they are from"
+
+13/2/18:
+Jquery - JS framework - pop up boxes etc
+Ajax - allows reloading of specific elements of the page without having to reload the whole site i.e. page likes, or search suggestions when a user starts typing.
+
 
 *****COMPLETED*****
 {# 21/11:
