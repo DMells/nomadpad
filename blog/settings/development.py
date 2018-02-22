@@ -1,5 +1,5 @@
 from .base import *
-# python manage.py runserver --settings=mysite.settings.development
+# python manage.py runserver --settings=blog.settings.development
 
 DEBUG= True
 

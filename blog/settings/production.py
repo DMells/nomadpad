@@ -1,5 +1,5 @@
 from .base import *
-# python manage.py migrate --settings=mysite.settings.production
+# python manage.py migrate --settings=blog.settings.production
 
 DEBUG = False
 
