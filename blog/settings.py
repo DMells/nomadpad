@@ -17,7 +17,7 @@ import os
  # projects settings.py module is contained.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-DJANGO_SETTINGS
+
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
@@ -50,7 +50,7 @@ SECRET_KEY = '^@(z7s#9imf*xl+j%@i#%ftx_2mmb#%or(xnrccidj19&%c3(8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.nomadpad.io']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     'social_django',
     'ckeditor',
     'ckeditor_uploader',
+    'imagekit',
+    'django_archive',
 ]
 
 MIDDLEWARE = [

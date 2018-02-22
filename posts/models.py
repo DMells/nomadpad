@@ -4,6 +4,9 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
+from imagekit.models import ProcessedImageField
+from imagekit.processors import *
+
 
 class Category(models.Model):
     title = models.CharField(max_length=200)
@@ -30,7 +33,11 @@ class Post(models.Model):
     author = models.ForeignKey(User, default=True)
     titleSlug = models.SlugField(blank=True)
     authorSlug = models.SlugField(blank=True)
-    mainimage = models.ImageField(upload_to="images/%Y/%m/%d", null=True)
+    # mainimage = models.ImageField(upload_to="images", null=True)
+    editedimage = ProcessedImageField(upload_to="images", null=True,
+                                processors = [Transpose()],
+                                format="JPEG") 
+                    
 
     def save(self, *args, **kwargs):
         self.titleSlug = slugify(self.title)

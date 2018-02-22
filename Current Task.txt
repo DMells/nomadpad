@@ -46,6 +46,9 @@ Add a "who ive met so far - and where they are from"
 Jquery - JS framework - pop up boxes etc
 Ajax - allows reloading of specific elements of the page without having to reload the whole site i.e. page likes, or search suggestions when a user starts typing.
 
+21/2/18:
+see jennyisfree.com - date flag at top of each post.
+
 
 *****COMPLETED*****
 {# 21/11:
