@@ -1,11 +1,9 @@
+# https://github.com/wooyek/django-settings-strategy
+environ.Env.read_env(Path(__file__) / "production.env", DEBUG='False', ASSETS_DEBUG='False')
 from .base import *
 # python manage.py migrate --settings=blog.settings.production
 
-DEBUG = False
-
 ALLOWED_HOSTS = ['www.nomadpad.io']
-
-SECRET_KEY = config('SECRET_KEY')
 
 DATABASES = {
     'default': {

@@ -1,7 +1,28 @@
 import os
-from decouple import config
+import environ
 
+# https://github.com/joke2k/django-environ
+env = environ.Env()
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Where BASE_DIR is a django source root, ROOT_DIR is a whole project root
+# It may differ BASE_DIR for eg. when your django project code is in `src` folder
+# This may help to separate python modules and *django apps* from other stuff
+# like documentation, fixtures, docker settings
+ROOT_DIR = BASE_DIR
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env('DEBUG', default=False)
+
+ALLOWED_HOSTS = []
+
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
@@ -115,8 +136,3 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     )
 
-SOCIAL_AUTH_TWITTER_KEY = 'KLStDLCRXIjYMjZoAFaOGUUUi'
-SOCIAL_AUTH_TWITTER_SECRET = 'uOQlpFu2fw4lM1SdKFAUk51gUMcwMnEbmc1ObHI4TBwURHFbJx'
-
-SOCIAL_AUTH_FACEBOOK_KEY = '146452232664041'
-SOCIAL_AUTH_FACEBOOK_SECRET = '6cba8c0697f86df0f59cc4d8492573b7'
