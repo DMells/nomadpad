@@ -1,5 +1,7 @@
 from __future__ import absolute_import
 
+from decouple import config
+
 from os import environ
 
 from .base import *
@@ -20,6 +22,7 @@ def get_env_setting(setting):
         raise ImproperlyConfigured(error_msg)
 
 DEBUG = False
+
 ALLOWED_HOSTS = ['www.nomadpad.io']
 
 DATABASES = {

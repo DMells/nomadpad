@@ -1,5 +1,7 @@
 import os
 from sys import path
+from decouple import config
+
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,9 +35,9 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-SECRET_KEY = r"{{ secret_key }}"
+SECRET_KEY = config('SECRET_KEY')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
