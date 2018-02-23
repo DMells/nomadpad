@@ -1,9 +1,6 @@
-import environ
-# https://github.com/wooyek/django-settings-strategy
-
 from .base import *
 # python manage.py migrate --settings=blog.settings.production
-environ.Env.read_env(path(__file__) / "production.env", DEBUG='False', ASSETS_DEBUG='False')
+
 ALLOWED_HOSTS = ['www.nomadpad.io']
 
 DATABASES = {
