@@ -1,25 +1,9 @@
 import os
-import environ
+from sys import path
 
-# https://github.com/joke2k/django-environ
-env = environ.Env()
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Where BASE_DIR is a django source root, ROOT_DIR is a whole project root
-# It may differ BASE_DIR for eg. when your django project code is in `src` folder
-# This may help to separate python modules and *django apps* from other stuff
-# like documentation, fixtures, docker settings
 ROOT_DIR = BASE_DIR
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG', default=False)
 
 ALLOWED_HOSTS = []
 
@@ -48,6 +32,10 @@ CKEDITOR_CONFIGS = {
         
     }
 }
+
+DEBUG = False
+
+SECRET_KEY = r"{{ secret_key }}"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
