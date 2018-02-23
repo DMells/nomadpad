@@ -4,8 +4,6 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.nomadpad.io']
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -24,3 +22,4 @@ DATABASES = {
 SECRET_KEY = config('SECRET_KEY')
 ########## END SECRET CONFIGURATION
 
+ALLOWED_HOSTS = ['www.nomadpad.io']
