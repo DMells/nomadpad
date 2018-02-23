@@ -34,7 +34,16 @@ CKEDITOR_CONFIGS = {
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'nomadpaddb',
+        'USER': 'super',
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': 'DMells123-678.postgres.pythonanywhere-services.com',
+        'PORT':'10678',
+    }
+}
 
 SECRET_KEY = config('SECRET_KEY')
 
