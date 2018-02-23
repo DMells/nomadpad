@@ -15,7 +15,7 @@ DATABASES = {
     }
 }
 
-
+ALLOWED_HOSTS = ['www.nomadpad.io']
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
