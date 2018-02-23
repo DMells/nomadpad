@@ -1,21 +1,30 @@
 import os
 from decouple import config
+from unipath import Path
+from dj_database_url import parse as db_url
 
+# from os.path import abspath, basename, dirname, join, normpath
+# from sys import path
+PROJECT_DIR = Path(__file__).parent.parent.parent
 
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT_DIR = BASE_DIR
-
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = os.path.join(PROJECT_DIR,'/posts/static')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '/posts/static')
+STATICFILES_DIRS = (
+     os.path.join(PROJECT_DIR,'static'),
+)
 
-MEDIA_DIR = os.path.join(BASE_DIR, 'posts/media')
+MEDIA_DIR = os.path.join(PROJECT_DIR,'/posts/media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+# ****************************
+
+ROOT_DIR = PROJECT_DIR
+
+TEMPLATE_DIR = os.path.join(PROJECT_DIR, '/posts/templates')
+
+
+
 
 CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
 CKEDITOR_IMAGE_BACKEND = 'pillow'
