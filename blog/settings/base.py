@@ -27,20 +27,6 @@ CKEDITOR_CONFIGS = {
         
     }
 }
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,16 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-
-
-
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,10 +94,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/London'
@@ -133,11 +105,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-
-# DMells added custom bi ts :
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home/'
@@ -153,11 +120,3 @@ SOCIAL_AUTH_TWITTER_SECRET = 'uOQlpFu2fw4lM1SdKFAUk51gUMcwMnEbmc1ObHI4TBwURHFbJx
 
 SOCIAL_AUTH_FACEBOOK_KEY = '146452232664041'
 SOCIAL_AUTH_FACEBOOK_SECRET = '6cba8c0697f86df0f59cc4d8492573b7'
-
-####################################
-    ##  CKEDITOR CONFIGURATION ##
-####################################
-
-###################################
-
-
