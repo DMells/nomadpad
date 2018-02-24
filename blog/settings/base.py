@@ -42,6 +42,8 @@ CKEDITOR_CONFIGS = {
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+SECRET_KEY = config('SECRET_KEY')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -53,7 +55,7 @@ DATABASES = {
     }
 }
 
-SECRET_KEY = config('SECRET_KEY')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
