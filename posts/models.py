@@ -34,7 +34,7 @@ class Post(models.Model):
     titleSlug = models.SlugField(blank=True)
     authorSlug = models.SlugField(blank=True)
     # mainimage = models.ImageField(upload_to="images", null=True)
-    editedimage = ProcessedImageField(upload_to="images", null=True,
+    editedimage = ProcessedImageField(upload_to="images", blank=True, null=True,
                                 processors = [Transpose()],
                                 format="JPEG") 
                     
