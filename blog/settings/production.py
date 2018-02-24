@@ -1,5 +1,5 @@
 from .base import *
-
+from decouple import config
 # python manage.py migrate --settings=blog.settings.production
 
 DEBUG = False
