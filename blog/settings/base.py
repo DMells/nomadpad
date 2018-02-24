@@ -1,7 +1,6 @@
 import os
 from decouple import config
 from unipath import Path
-from dj_database_url import parse as db_url
 
 # from os.path import abspath, basename, dirname, join, normpath
 # from sys import path
