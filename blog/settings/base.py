@@ -6,24 +6,19 @@ from unipath import Path
 # from sys import path
 PROJECT_DIR = Path(__file__).parent.parent.parent
 
-STATIC_ROOT = os.path.join(PROJECT_DIR,'/posts/static')
+STATIC_ROOT = os.path.join(PROJECT_DIR,'posts/static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
      os.path.join(PROJECT_DIR,'static'),
 )
 
-MEDIA_DIR = os.path.join(PROJECT_DIR,'/posts/media')
+MEDIA_DIR = os.path.join(PROJECT_DIR,'posts/media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-# ****************************
-
 ROOT_DIR = PROJECT_DIR
 
-TEMPLATE_DIR = os.path.join(PROJECT_DIR, '/posts/templates')
-
-
-
+TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'posts/templates')
 
 CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
 CKEDITOR_IMAGE_BACKEND = 'pillow'
