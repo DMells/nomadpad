@@ -10,7 +10,7 @@ __pycache__/
 *.env
 blog/__pycache__/*
 blog/settings/__pycache__/
-posts/static/
+blog/posts/static/*
 
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
