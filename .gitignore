@@ -5,12 +5,13 @@
 *.log
 *.pot
 *.pyc
-blog/__pycache__/
-__pycache__/
+/blog/__pycache__
+__pycache__
 *.env
-blog/__pycache__/*
-blog/settings/__pycache__/
-blog/posts/static/*
+/blog/settings/__pycache__
+/blog/posts/static
+/static
+/posts/__pycache__
 
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
