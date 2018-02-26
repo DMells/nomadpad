@@ -11,7 +11,7 @@ blog/settings/__pycache__
 posts/__pycache__
 *.env
 posts/static/admin
-posts/static/ckeditor
+posts/static/ckeditor 
 
 
 
