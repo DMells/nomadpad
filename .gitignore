@@ -5,8 +5,10 @@
 *.log
 *.pot
 *.pyc
-*/__pycache__/
-__pycache__/
+*/__pycache__
+blog/__pycache__
+blog/settings/__pycache__
+posts/__pycache__
 *.env
 
 
