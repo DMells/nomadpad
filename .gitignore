@@ -10,8 +10,8 @@ blog/__pycache__/
 blog/settings/__pycache__
 posts/__pycache__/
 *.env
-posts/static/admin
-posts/static/ckeditor 
+# posts/static/admin
+# posts/static/ckeditor 
 
 
 
