@@ -22,7 +22,7 @@ ROOT_DIR = PROJECT_DIR
 
 TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'posts/templates')
 
-CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
+CKEDITOR_UPLOAD_PATH = STATIC_ROOT
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = 'in-post_images/'
