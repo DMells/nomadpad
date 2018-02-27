@@ -11,7 +11,8 @@ blog/settings/__pycache__
 posts/__pycache__/
 *.env
 # posts/static/admin
-# posts/static/ckeditor 
+# posts/static/ckeditor
+
 
 
 
@@ -22,4 +23,3 @@ posts/__pycache__/
 
 
 # End of https://www.gitignore.io/api/django
-*.pyc
