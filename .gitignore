@@ -6,9 +6,10 @@
 *.pot
 *.pyc
 */__pycache__
-blog/__pycache__
+blog/__pycache__/
 blog/settings/__pycache__
-posts/__pycache__
+posts/__pycache__/
+
 *.env
 posts/static/admin
 posts/static/ckeditor 
