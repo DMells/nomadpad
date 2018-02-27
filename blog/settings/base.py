@@ -1,31 +1,37 @@
-import os
+import os.path
 from decouple import config
 from unipath import Path
 
 # from os.path import abspath, basename, dirname, join, normpath
 # from sys import path
 PROJECT_DIR = Path(__file__).parent.parent.parent
-
-STATIC_ROOT = os.path.join(PROJECT_DIR,'posts/static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-     os.path.join(PROJECT_DIR,'static'),
-)
 
-MEDIA_DIR = os.path.join(PROJECT_DIR,'posts/media')
-MEDIA_ROOT = MEDIA_DIR
+# App specific static files are stored in the static subdirectory 
+# within the app. Django will also look in any directories listed in 
+# the STATICFILES_DIRS setting. Let’s update our project settings to 
+# specify a static files directory.
+# STATICFILES_DIRS = [
+#      os.path.join(PROJECT_DIR,'static'),
+# ]
+# The STATIC_ROOT variable in settings.py defines the single folder you want 
+# to collect all your static files into. Typically, this would be a top-level
+# folder inside your project
+STATIC_ROOT = os.path.join(PROJECT_DIR,'static')
+
+
+# MEDIA_DIR = os.path.join(PROJECT_DIR,'/media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR,'media')
 MEDIA_URL = '/media/'
 
-ROOT_DIR = PROJECT_DIR
+# ROOT_DIR = PROJECT_DIR
 
 TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'posts/templates')
 
 CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
 CKEDITOR_IMAGE_BACKEND = 'pillow'
-
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
-
-CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_UPLOAD_PATH = 'in-post_images/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
