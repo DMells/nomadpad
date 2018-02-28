@@ -8,10 +8,10 @@ DEBUG = False
 # within the app. Django will also look in any directories listed in 
 # the STATICFILES_DIRS setting. Let’s update our project settings to 
 # specify a static files directory.
-STATICFILES_DIRS = [
-      "/home/DMells123/nomadpad/media/in-post_images",
-      "/home/DMells123/nomadpad/media/primary_images",
- ]
+# STATICFILES_DIRS = [
+#       "/home/DMells123/nomadpad/media/in-post_images",
+#       "/home/DMells123/nomadpad/media/primary_images",
+#  ]
 
 ALLOWED_HOSTS = ['www.nomadpad.io']
 
