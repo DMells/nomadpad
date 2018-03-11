@@ -37,6 +37,7 @@ class Post(models.Model):
     editedimage = ProcessedImageField(upload_to="primary_images", null=True,
                                 processors = [Transpose()],
                                 format="JPEG")
+    show_in_posts = models.BooleanField(default=True)
                     
 
     def save(self, *args, **kwargs):

@@ -39,17 +39,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 SECRET_KEY = ["^@(z7s#9imf*xl+j%@i#%ftx_2mmb#%or(xnrccidj19&%c3(8"]
 # SECRET_KEY = config('SECRET_KEY')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'nomadpaddb',
-        'USER': 'super',
-        'PASSWORD': 'lalalala',
-        # 'PASSWORD': config('DB_PASSWORD'),
-        'HOST': 'DMells123-678.postgres.pythonanywhere-services.com',
-        'PORT':'10678',
-    }
-}
+
 
 
 

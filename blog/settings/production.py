@@ -20,3 +20,15 @@ ALLOWED_HOSTS = ['www.nomadpad.io']
 
 # SECRET_KEY= config('SECRET_KEY')
 ########## END SECRET CONFIGURATION
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'nomadpaddb',
+        'USER': 'super',
+        'PASSWORD': 'lalalala',
+        # 'PASSWORD': config('DB_PASSWORD'),
+        'HOST': 'DMells123-678.postgres.pythonanywhere-services.com',
+        'PORT':'10678',
+    }
+}

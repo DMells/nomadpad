@@ -49,6 +49,20 @@ Ajax - allows reloading of specific elements of the page without having to reloa
 21/2/18:
 see jennyisfree.com - date flag at top of each post.
 
+28/2/18:
+A page about my programming
+
+28/2/18:
+Automatic numbering of posts in the titles 
+
+3/3/18:
+Ability to sort posts by newest, oldest
+
+4/4/18:
+option in admin panel to have the post online or not, incase post not completed.
+
+8/3/18:
+Long term - could have a who I'm travelling with section, and they automatically get access to their own blog writing section, and they can add their friends etc, so becomes a platform for viral blogging.
 
 *****COMPLETED*****
 {# 21/11:

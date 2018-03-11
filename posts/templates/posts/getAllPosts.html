@@ -9,7 +9,7 @@
 {% block content %}	
 {% if latest_posts %}
 	{% for post in latest_posts %}
-   
+   {% if post.show_in_posts %} 
 	<div class="w-auto flex justify-center"> {# To align the cards to the middle #}
 <div class="max-w-sm rounded overflow-hidden shadow-lg mb-6 my-6  ml-6">
   <a href="{% url 'getPost' slug=post.titleSlug %}">
@@ -39,12 +39,14 @@
 					{% if category.index < post.category.length %},
 					{% endif %}
 				{% endif %}
+
 			</a>
 		{% endfor %}
 	</span>
   </div>
 </div>
 </div>
+  {% endif %}
  {% endfor %}
 {% endif %}
 {% endblock content %}
