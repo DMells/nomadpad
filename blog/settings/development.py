@@ -9,11 +9,23 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'travelblogdb',
-        'USER': 'dmells',
+        'NAME': 'nomadpaddb',
+        'USER': 'super',
         'PASSWORD': 'comeonffs',
         'HOST': 'localhost',
         'PORT':'',
 
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'travelblogdb',
+#         'USER': 'dmells',
+#         'PASSWORD': 'comeonffs',
+#         'HOST': 'localhost',
+#         'PORT':'',
+
+#     }
+# }
