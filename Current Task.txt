@@ -1,6 +1,5 @@
 
-25/11:
-Tailwind - css,
+
 
 28/11:
 Add in a population script as per Tango with Django - ensures you can recreate your data automatically after a migration
@@ -17,15 +16,12 @@ Add in a population script as per Tango with Django - ensures you can recreate y
 30/11:
 for posts with multiple categories, add commas in between the 'found in' bits to separate each category named.
 
-27/12:
-Add 'cards' as a css style for the blog posts. https://tailwindcss.com/docs/examples/cards
-Perhaps use the horizontal style.
+
 
 1/1/18:
 Add javascript to make login/logout appear/hide as needed, depending on whether the user is logged in.
 
-1/1/18:
-Add insert img field to the admin site, so you can add a thumbnail img when creating posts.
+
 
 3/1/18:
 see mindvalleyacademy.com for great landing page intro
@@ -58,11 +54,23 @@ Automatic numbering of posts in the titles
 3/3/18:
 Ability to sort posts by newest, oldest
 
-4/4/18:
-option in admin panel to have the post online or not, incase post not completed.
+
 
 8/3/18:
 Long term - could have a who I'm travelling with section, and they automatically get access to their own blog writing section, and they can add their friends etc, so becomes a platform for viral blogging.
+
+14/3/18:
+Minutes to read each post - tracking etc?
+
+14/3/18:
+Email shot - new posts since your last visit?
+Email shot - posts you haven't yet read?
+
+14/3/18:
+Separate page for everyone who ive met, and where and the circumstances, via facebook widget?
+
+15/3/18:
+Maybe a map next to each post, which links the last post location to the new one, and has an animation of an arrow moving from there to the new location.
 
 *****COMPLETED*****
 {# 21/11:
@@ -76,3 +84,16 @@ Comments form - so users can post their own comments - should i just use the fac
 
 {# 18/12:
 Add in a categories side bar, which highlights which category you're in (bold) see tango with django location 2484 #}
+
+{# 25/11:
+Tailwind - css, #}
+
+{# 27/12:
+Add 'cards' as a css style for the blog posts. https://tailwindcss.com/docs/examples/cards
+Perhaps use the horizontal style. #}
+
+{# 1/1/18:
+Add insert img field to the admin site, so you can add a thumbnail img when creating posts. #}
+
+{# 4/4/18:
+option in admin panel to have the post online or not, incase post not completed. #}

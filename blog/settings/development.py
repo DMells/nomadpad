@@ -11,7 +11,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nomadpaddb',
         'USER': 'super',
-        'PASSWORD': 'comeonffs',
+        'PASSWORD': 'lalalala',
         'HOST': 'localhost',
         'PORT':'',
 
