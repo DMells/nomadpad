@@ -5,27 +5,45 @@
 
 <div>
 	<h2>{{ category.title}}</h2>
-	{% for post in category.post_set.all %}
-				<a href={% url 'getPost' slug=post.titleSlug %}><h3>{{post.title}}</h3></a>
-				<ul>{{post.summary}}</ul>
-				<ul>Posted : {{post.pub_date}}</ul>
-				<ul>
-					<em>Authored by :</em>
-					
-					<a href={% url 'getAuthorPosts' slug=post.authorSlug %}>{{post.author}}</a>
-				</ul>
-					
-				Comments :
-				{% for comment in post.comment_set.all %}
-					<ol>
-						<li>{{comment.title}}</li>
-						<li>{{comment.body}}</li>
-						<li>{{comment.pub_date}}</li>
-						<li>{{comment.author}}</li>
-					</ol>	
-				{% endfor %}
-	{% endfor %}
+	{% for post in category.post_set.all|dictsortreversed:"pub_date" %}
+				<div class="w-auto flex justify-center"> {# To align the cards to the middle #}
+<div class="max-w-sm rounded overflow-hidden shadow-lg mb-6 my-6  ml-6">
+  <a href="{% url 'getPost' slug=post.titleSlug %}">
+  		<img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
+   </a>
 
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2 ">		
+    	      	<a class="no-underline hover:underline" href={% url 'getPost' slug=post.titleSlug %} >
+			      		<h3>{{post.title}}</h3>
+		      	</a>
+	</div>
+    <p class="text-grey-darker text-base">
+      {{post.summary}}
+    </p>
+  </div>
+  <div class="px-6 py-4">
+    <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
+    	<a href={% url 'getAuthorPosts' slug=post.authorSlug %} style="text-decoration:none">{{post.author}}</a>
+    </span>
+    <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2"><a href={% url 'getPost' slug=post.titleSlug %} style="text-decoration:none"> {{ post.comment_set.count }}</a> Comments</span>
+    <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker">{{post.pub_date}}</span>
+    <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker">
+    	{% for category in post.category.all %}
+			<a href={% url 'getCategory' slug=category.slug%} class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2" style="text-decoration:none">#{{category.title}}
+				{% if post.category.count > 1 %}
+					{% if category.index < post.category.length %},
+					{% endif %}
+				{% endif %}
+
+			</a>
+		{% endfor %}
+	</span>
+  </div>
+</div>
 </div>
 
+</div>
+ 
+ {% endfor %}
 {% endblock content %}

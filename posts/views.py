@@ -34,8 +34,10 @@ def getPost(request, slug):
 
 def getCategory(request, slug):
     category = Category.objects.get(slug=slug)
+    
     context = {
-    'category':category
+    'category':category,
+    
     }
     return render(request, 'categories/getCategory.html', context)
 
