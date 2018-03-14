@@ -72,6 +72,9 @@ Separate page for everyone who ive met, and where and the circumstances, via fac
 15/3/18:
 Maybe a map next to each post, which links the last post location to the new one, and has an animation of an arrow moving from there to the new location.
 
+15/3/18:
+Posts by category - the hide if unfinished doesnt work, possibly as not linked to correct view.
+
 *****COMPLETED*****
 {# 21/11:
 Sort links/slugs to have posts set up properly: 
