@@ -98,5 +98,8 @@ Perhaps use the horizontal style. #}
 {# 1/1/18:
 Add insert img field to the admin site, so you can add a thumbnail img when creating posts. #}
 
-{# 4/4/18:
+{# 4/3/18:
 option in admin panel to have the post online or not, incase post not completed. #}
+
+{# 15/3/18: 
+Used django-environ package to remove secret variables from github. Learnt to manipulate git ignore to keep different .env files on production and dev #}
