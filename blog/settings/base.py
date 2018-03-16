@@ -1,4 +1,6 @@
 import os.path
+import os
+import environ
 from decouple import config
 from unipath import Path
 
@@ -34,10 +36,13 @@ CKEDITOR_CONFIGS = {
         
     }
 }
+env = environ.Env(
+    DEBUG=(bool, False),
+)
 
-DEBUG = config('DEBUG', default=False, cast=bool)
-SECRET_KEY = ["^@(z7s#9imf*xl+j%@i#%ftx_2mmb#%or(xnrccidj19&%c3(8"]
-# SECRET_KEY = config('SECRET_KEY')
+environ.Env.read_env()
+
+SECRET_KEY = env('SECRET_KEY')
 
 
 
