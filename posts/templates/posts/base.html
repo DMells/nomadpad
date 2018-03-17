@@ -10,11 +10,8 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
-
-
  	</head>
 
-    
  	  	<header class="flex border bg-blue-light text-white">
     		<div class=" flex  w-1/2">
     			<div class=" w-1/2">
@@ -31,23 +28,53 @@
 	    	</div>
 	    </header>	   
 	<body class="sans">
-			<div>
-				
-			</div>
+			<script>
+			  window.fbAsyncInit = function() {
+			    FB.init({
+			      appId      : '131897610863545',
+			      cookie     : true,
+			      xfbml      : true,
+			      version    : 'v2.12'
+			    });
+			      
+			    FB.AppEvents.logPageView();   
+			      
+			  };
+
+			  (function(d, s, id){
+			     var js, fjs = d.getElementsByTagName(s)[0];
+			     if (d.getElementById(id)) {return;}
+			     js = d.createElement(s); js.id = id;
+			     js.src = "https://connect.facebook.net/en_US/sdk.js";
+			     fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=131897610863545&autoLogAppEvents=1';
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+		
+
 		    <div class=" flex-wrap justify-end w-full p-6 m-auto border">
 		       	{% block content %}
 		       	{% endblock %}
 		   	</div>
-		   	<div class=" border w-1/5">
+		   	<div class="invisible border w-1/5">
 	   			{% block sidebar_block %}
 	   				{% get_category_list category %}
 	   			{% endblock %}
 	   		</div>
-		    
+		   
 	    <div class="footer">
 	    </div>
     </body>
-
+<footer>
+	<a class="text-sm flex justify-center" href={% url 'privacypolicy' %} >Nomad Pad Privacy Policy</a>
+</footer>
 
 </html>
 

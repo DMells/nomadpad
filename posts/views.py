@@ -90,3 +90,5 @@ def add_comment_to_post(request, slug):
 
     return render(request, 'comments/add_comment_to_post.html', {'form':form})
 
+def privacypolicy(request):
+    return render(request, 'policies/privacypolicy.html')

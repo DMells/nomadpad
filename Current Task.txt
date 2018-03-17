@@ -75,6 +75,14 @@ Maybe a map next to each post, which links the last post location to the new one
 15/3/18:
 Posts by category - the hide if unfinished doesnt work, possibly as not linked to correct view.
 
+16/3/18:
+Add number of views to posts
+
+176/3/18:
+"secure the django admin" - chapter in 2 scoops.
+
+
+
 *****COMPLETED*****
 {# 21/11:
 Sort links/slugs to have posts set up properly: 
