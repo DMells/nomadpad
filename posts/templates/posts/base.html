@@ -57,7 +57,17 @@
 			  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=131897610863545&autoLogAppEvents=1';
 			  fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
-		
+		<script>
+var finished_rendering = function() {
+  console.log("finished rendering plugins");
+  var spinner = document.getElementById("spinner");
+  spinner.removeAttribute("style");
+  spinner.removeChild(spinner.childNodes[0]);
+}
+FB.Event.subscribe('xfbml.render', finished_rendering);
+</script>
+
+</div>
 
 		    <div class=" flex-wrap justify-end w-full p-6 m-auto border">
 		       	{% block content %}

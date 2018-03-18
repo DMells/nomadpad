@@ -78,9 +78,14 @@ Posts by category - the hide if unfinished doesnt work, possibly as not linked t
 16/3/18:
 Add number of views to posts
 
-176/3/18:
+17/3/18:
 "secure the django admin" - chapter in 2 scoops.
 
+17/3/18:
+complete SSH from PythonAnywhere email to then set up facebook login properly
+
+17/3/18:
+for non-travel blog posts, such as the programming post, do i set up static page for it, or have a filter saying if not travel-post, then exclude from the main posts template. Probably easier to have a static page, but then wouldn't be able to use ckeditor.
 
 
 *****COMPLETED*****
