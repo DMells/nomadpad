@@ -87,6 +87,10 @@ complete SSH from PythonAnywhere email to then set up facebook login properly
 17/3/18:
 for non-travel blog posts, such as the programming post, do i set up static page for it, or have a filter saying if not travel-post, then exclude from the main posts template. Probably easier to have a static page, but then wouldn't be able to use ckeditor.
 
+18/3/18:
+Menu bar below header : have a locations (which has a drop down - 'onclick drop down'), about me?, programming page, contact (for job requests).
+
+
 
 *****COMPLETED*****
 {# 21/11:
@@ -116,3 +120,9 @@ option in admin panel to have the post online or not, incase post not completed.
 
 {# 15/3/18: 
 Used django-environ package to remove secret variables from github. Learnt to manipulate git ignore to keep different .env files on production and dev #}
+
+{# 16/3/18:
+Set up facebook login and comments #}
+
+{# 18/3/18:
+img optimisation #}

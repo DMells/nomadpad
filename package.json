@@ -3,22 +3,35 @@
   "version": "1.0.0",
   "main": "gulpfile.js",
   "dependencies": {
-    "ckeditor": "^4.8.0",
-    "gulp": "^3.9.1"
+    "ckeditor": "^4.8.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^8.1.0",
+    "bower": "^1.8.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-filter": "^5.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "main-bower-files": "^2.13.1",
+    "pug": "^2.0.1",
+    "tailwindcss": "^0.5.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DMells/nomadpad1.git"
+    "url": "git+https://github.com/DMells/nomadpad.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DMells/nomadpad1/issues"
+    "url": "https://github.com/DMells/nomadpad/issues"
   },
-  "homepage": "https://github.com/DMells/nomadpad1#readme",
+  "homepage": "https://github.com/DMells/nomadpad#readme",
   "description": ""
 }

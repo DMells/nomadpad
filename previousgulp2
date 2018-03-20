@@ -1,0 +1,62 @@
+//Include Gulp
+var gulp = require('gulp');
+var connect = require('gulp-connect');
+var postcss = require('gulp-postcss');
+var pug = require('gulp-pug');
+var autoprefixer = require('autoprefixer');
+//Define base folders
+var src = 'src/';
+var dest = './posts/static/';
+// Include plugins
+var plugins = require("gulp-load-plugins")({
+  pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
+  replaceString: /\bgulp[\-.]/
+});
+
+// Concatenate & Minify JS
+gulp.task('scripts', function() {
+    return gulp.src(src + 'js/*.js')
+      .pipe(plugins.concat('main.js'))
+        .pipe(plugins.rename({suffix: '.min'}))
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest(dest + 'js'));
+});
+// Compile CSS
+gulp.task('css', function () {
+  var postcss = require('gulp-postcss');
+  var tailwindcss = require('tailwindcss');
+
+  return gulp.src(src + 'css/styles.css')
+    .pipe(postcss([
+      tailwindcss('./tailwind.js'),
+      require('autoprefixer'),
+    ]))
+    .pipe(gulp.dest(dest + 'css'))
+    .pipe(connect.reload())
+});
+
+gulp.task('html', function() {
+  gulp.src('./templates/posts/base.html')
+    .pipe(pug())
+    .pipe(gulp.dest(dest + 'html'))
+});
+
+// Watch for changes in files
+gulp.task('watch', function() {
+   gulp.watch(dest + 'css/*.css', ['css']);
+   gulp.watch(dest + 'html/*.html', ['html']);
+   gulp.watch(dest + 'js/*.js', ['scripts']);
+
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    root: 'build',
+    livereload: true,
+    open: true
+  });
+});
+
+// Default Task
+gulp.task('default', ['css', 'html', 'scripts']);
+gulp.task('start', ['connect', 'watch']);

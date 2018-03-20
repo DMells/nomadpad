@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-{% extends "posts/base.html" %} 
-{% load static %}
-{% load template_tags %}
-{% block image %}
-{% endblock %}
 
+{% extends "posts/base.html" %} 
+{% load template_tags %}
 
 {% block content %}	
 {% if latest_posts %}
@@ -34,7 +30,7 @@
 
       <div class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2"> 
           Comments: 
-          <span class="fb-comments-count " data-href="https://www.nomadpad.io/{% url 'getPost' slug=post.titleSlug %}" style="text-decoration:none">
+          <span class="fb-comments-count" data-href="https://www.nomadpad.io/{% url 'getPost' slug=post.titleSlug %}">
           </span>
       </div>
 

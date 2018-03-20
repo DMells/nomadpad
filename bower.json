@@ -1,0 +1,13 @@
+{
+  "name": "blog_postcssgulp",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "DMells <dave@davemellor.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/DMells/nomadpad",
+  "devDependencies": {
+    "jquery": "^3.3.1"
+  }
+}
