@@ -6,7 +6,7 @@ var pug = require('gulp-pug');
 var autoprefixer = require('autoprefixer');
 //Define base folders
 var static = 'static/';
-var dest = '/posts/static/';
+var dest = 'dest/';
 // Include plugins
 var plugins = require("gulp-load-plugins")({
   pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
@@ -17,6 +17,8 @@ var plugins = require("gulp-load-plugins")({
 gulp.task('scripts', function() {
 
   var jsFiles = [static + 'js/*'];
+  var static = 'static/';
+  var dest = '/dest/';
   //plugins.mainBowerFiles() returns an array of all the main 
   //files from the packages and 
   //plugins.filter('*.js') uses gulp-filter to pass only JS files.
@@ -47,7 +49,7 @@ gulp.task('tailwind', function () {
   var postcss = require('gulp-postcss');
   var tailwindcss = require('tailwindcss');
 
-  return gulp.src('./static/styles.css')
+  return gulp.src('static/styles/*.css',)
     .pipe(postcss([
       tailwindcss('tailwind.js'),
       require('autoprefixer'),
@@ -56,6 +58,8 @@ gulp.task('tailwind', function () {
     .pipe(connect.reload())
 });
 
+// This doesn't work. When I change the src link to posts/templates etc,
+// it doesnt like the django template tags
 gulp.task('html', function() {
   gulp.src('./templates/posts/base.html')
     .pipe(pug())
@@ -63,6 +67,7 @@ gulp.task('html', function() {
 });
 
 // Watch for changes in files
+// This also doesn't work.
 gulp.task('watch', function() {
    gulp.watch(dest + 'css/*.css', ['css']);
    gulp.watch(dest + 'html/*.html', ['html']);
