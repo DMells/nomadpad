@@ -11,7 +11,6 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
-    "gulp-debug": "^3.2.0",
     "gulp-filter": "^5.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-postcss": "^7.0.1",

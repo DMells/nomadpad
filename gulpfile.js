@@ -5,8 +5,8 @@ var postcss = require('gulp-postcss');
 var pug = require('gulp-pug');
 var autoprefixer = require('autoprefixer');
 //Define base folders
-var static = 'static/';
-var dest = 'dest/';
+var src = '/src/';
+var dest = '/posts/static/';
 // Include plugins
 var plugins = require("gulp-load-plugins")({
   pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
@@ -16,9 +16,7 @@ var plugins = require("gulp-load-plugins")({
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
 
-  var jsFiles = [static + 'js/*'];
-  var static = 'static/';
-  var dest = '/dest/';
+  var jsFiles = [src + 'js/*'];
   //plugins.mainBowerFiles() returns an array of all the main 
   //files from the packages and 
   //plugins.filter('*.js') uses gulp-filter to pass only JS files.
@@ -33,7 +31,7 @@ gulp.task('scripts', function() {
 // Compile CSS
 gulp.task('css', function() {
 
-  var cssFiles = [static +'css/*'];
+  var cssFiles = [src +'css/*'];
 
   gulp.src(plugins.mainBowerFiles().concat(cssFiles))
     .pipe(plugins.filter('*.css'))
@@ -49,7 +47,7 @@ gulp.task('tailwind', function () {
   var postcss = require('gulp-postcss');
   var tailwindcss = require('tailwindcss');
 
-  return gulp.src('static/styles/*.css',)
+  return gulp.src('./src/styles.css')
     .pipe(postcss([
       tailwindcss('tailwind.js'),
       require('autoprefixer'),
@@ -58,8 +56,6 @@ gulp.task('tailwind', function () {
     .pipe(connect.reload())
 });
 
-// This doesn't work. When I change the src link to posts/templates etc,
-// it doesnt like the django template tags
 gulp.task('html', function() {
   gulp.src('./templates/posts/base.html')
     .pipe(pug())
@@ -67,7 +63,6 @@ gulp.task('html', function() {
 });
 
 // Watch for changes in files
-// This also doesn't work.
 gulp.task('watch', function() {
    gulp.watch(dest + 'css/*.css', ['css']);
    gulp.watch(dest + 'html/*.html', ['html']);
@@ -84,5 +79,5 @@ gulp.task('connect', function() {
 });
 
 // Default Task
-gulp.task('default', ['css', 'tailwind', 'html', 'scripts',]);
+gulp.task('default', ['css', 'tailwind', 'html', 'scripts']);
 gulp.task('start', ['connect', 'watch']);
