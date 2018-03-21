@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 {% load template_tags %}
 {% load static %}
 <html>
@@ -11,8 +10,7 @@
 		<script src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 		<script src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 		<script src="/static/js/scripts.js"></script>
-		<link rel="stylesheet" href="./static/css/styles.css">
-		<link rel="stylesheet" href="./static/css/custom.css">
+		<link rel="stylesheet" href="/static/css/custom.css">
 		<link rel="stylesheet" href="/static/css/styles.css">
  	</head>
 
@@ -31,6 +29,7 @@
 		   				{% block sidebar_block %}
 		   					{% get_category_list category %}
 		   				{% endblock %}
+
 		   			</div>	
 		   			</li>
 		    		

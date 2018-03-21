@@ -5,7 +5,7 @@ var postcss = require('gulp-postcss');
 var pug = require('gulp-pug');
 var autoprefixer = require('autoprefixer');
 //Define base folders
-var src = '/src/';
+var static = 'static/';
 var dest = '/posts/static/';
 // Include plugins
 var plugins = require("gulp-load-plugins")({
@@ -16,7 +16,7 @@ var plugins = require("gulp-load-plugins")({
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
 
-  var jsFiles = [src + 'js/*'];
+  var jsFiles = [static + 'js/*'];
   //plugins.mainBowerFiles() returns an array of all the main 
   //files from the packages and 
   //plugins.filter('*.js') uses gulp-filter to pass only JS files.
@@ -31,7 +31,7 @@ gulp.task('scripts', function() {
 // Compile CSS
 gulp.task('css', function() {
 
-  var cssFiles = [src +'css/*'];
+  var cssFiles = [static +'css/*'];
 
   gulp.src(plugins.mainBowerFiles().concat(cssFiles))
     .pipe(plugins.filter('*.css'))
@@ -47,7 +47,7 @@ gulp.task('tailwind', function () {
   var postcss = require('gulp-postcss');
   var tailwindcss = require('tailwindcss');
 
-  return gulp.src('./src/styles.css')
+  return gulp.src('./static/styles.css')
     .pipe(postcss([
       tailwindcss('tailwind.js'),
       require('autoprefixer'),
@@ -79,5 +79,5 @@ gulp.task('connect', function() {
 });
 
 // Default Task
-gulp.task('default', ['css', 'tailwind', 'html', 'scripts']);
+gulp.task('default', ['css', 'tailwind', 'html', 'scripts',]);
 gulp.task('start', ['connect', 'watch']);
