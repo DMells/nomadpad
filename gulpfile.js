@@ -5,8 +5,8 @@ var postcss = require('gulp-postcss');
 var pug = require('gulp-pug');
 var autoprefixer = require('autoprefixer');
 //Define base folders
-var src = 'src/';
-var dest = 'posts/static/';
+var src = '/src/';
+var dest = '/posts/static/';
 // Include plugins
 var plugins = require("gulp-load-plugins")({
   pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
@@ -16,7 +16,7 @@ var plugins = require("gulp-load-plugins")({
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
 
-  var jsFiles = ['src/js/*'];
+  var jsFiles = [src + 'js/*'];
   //plugins.mainBowerFiles() returns an array of all the main 
   //files from the packages and 
   //plugins.filter('*.js') uses gulp-filter to pass only JS files.
@@ -49,7 +49,7 @@ gulp.task('tailwind', function () {
 
   return gulp.src('./src/styles.css')
     .pipe(postcss([
-      tailwindcss('./tailwind.js'),
+      tailwindcss('tailwind.js'),
       require('autoprefixer'),
     ]))
     .pipe(gulp.dest('./posts/static/css'))
