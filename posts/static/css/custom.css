@@ -61,7 +61,7 @@ header {
     transition: 0.5s;
 }
 
-button:hover {
+.button:hover {
     background-color: #477DB3;
 }
 
