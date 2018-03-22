@@ -4,7 +4,7 @@
 {% block content %}
 
           <div>
-          	<h2>{{ category.title}}</h2>
+          	<h2 class="flex justify-center">{{ category.title}}</h2>
           	{% for post in category.post_set.all|dictsortreversed:"pub_date" %}
             {% if post.show_in_posts %}
           				<div class="w-auto flex justify-center"> {# To align the cards to the middle #}

@@ -10,8 +10,6 @@ blog/__pycache__/
 blog/settings/__pycache__
 posts/__pycache__/
 *.env
-static/admin
-static/ckeditor
 
 
 
