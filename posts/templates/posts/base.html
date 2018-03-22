@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 {% load template_tags %}
 {% load static %}
 <html>
+
+<!-- / means the root of the current drive;
+
+./ means the current directory;
+
+../ means the parent of the current directory.
+
+CSS / JS should be edited in posts/static (which will show up in-browser immediately), and then collect static pushes to root static (which is useful for production with static files coming from several locations)
+-->
+
  	<head lang="en">
  		<meta charset="UTF-8" />
  		<meta property="fb:app_id" content="131897610863545"/>
@@ -11,12 +20,11 @@
 		<script src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 		<script src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 		<script src="/static/js/scripts.js"></script>
-		<link rel="stylesheet" href="./static/css/styles.css">
-		<link rel="stylesheet" href="./static/css/custom.css">
+		<link rel="stylesheet" href="/static/css/custom.css">
 		<link rel="stylesheet" href="/static/css/styles.css">
  	</head>
 
- 	<header class="flex flex-col border bg-blue-light text-white">
+ 	<header id="header" class="flex flex-col border bg-blue-light text-white">
     	<div class=" flex  w-1/2">
     		<div class=" w-1/2">
     			<h3 class="text-4xl"><a class="no-underline hover:underline text-blue-dark" href={% url "home" %}>.nomadpad</a></h3>
@@ -25,7 +33,7 @@
 
 			<nav class="flex py-2 justify-center">
 		    	<ul class="flex flex-row">
-		    		<li class="dropdown"><a class=" px-4 mx-4">Destinations</a>
+		    		<li class="dropdown"><button class="dropbtn"><a class=" px-4 mx-4">Destinations</a></button>
 		    		<div class="dropdown-content flex-col border w-1/5">
 		    			
 		   				{% block sidebar_block %}
@@ -34,16 +42,16 @@
 		   			</div>	
 		   			</li>
 		    		
-		    		<li><a class="px-4 mx-4">Adventure Loot</a></li>
-		    		<li><a class="px-4 mx-4">One's and Zero's</a></li>
-		    		<li><a class="px-4 mx-4">Need Something?</a></li>
+		    		<li><button class="dropbtn"><a class="px-4 mx-4">Adventure Loot</a></button></li>
+		    		<li><button class="dropbtn"><a class="px-4 mx-4">One's and Zero's</a></button></li>
+		    		<li><button class="dropbtn"><a class="px-4 mx-4">Need Something?</a></button></li>
 		    	</ul>
 		    </nav>  
 	</header>	
 
 
 
-	<body class="sans position:fixed">
+	<body id="content" class="sans">
 
 			<script>
 			  window.fbAsyncInit = function() {
@@ -97,7 +105,7 @@ FB.Event.subscribe('xfbml.render', finished_rendering);
 </footer>
 
 </html>
-
+<!--
 {# {% block image %} #}
 				{# <img src="{% static "images/Plitvice_Lakes.jpg" %}" class="w-auto h-auto mb-6 shadow-lg rounded"> #}
 				{# {% endblock %} #}
@@ -112,3 +120,4 @@ FB.Event.subscribe('xfbml.render', finished_rendering);
 			•
 			<a class="text-white" href=# style="text-decoration:none"> Sign-Up </a>
 		</div> #}
+-->

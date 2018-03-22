@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "gulpfile.js",
   "dependencies": {
-    "ckeditor": "^4.8.0"
+    "ckeditor": "^4.8.0",
+    "cursor": "^0.1.5"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
