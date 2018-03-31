@@ -11,7 +11,7 @@ from imagekit.processors import *
 class Category(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(blank=True, unique=True)
-    # To effect informal rendering of fields, eg : from "<Model Object>" 
+    # To effect informal rendering of fields, eg : from "<Model Object>"
     # to "Title":
     def __str__(self):
         return self.title
@@ -22,7 +22,7 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Category, self).save(*args, **kwargs)
-  
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -38,13 +38,13 @@ class Post(models.Model):
                                 processors = [Transpose()],
                                 format="JPEG")
     show_in_posts = models.BooleanField(default=True)
-                    
+
 
     def save(self, *args, **kwargs):
         self.titleSlug = slugify(self.title)
         self.authorSlug = slugify(self.author)
         super(Post, self).save(*args, **kwargs)
-   
+
     def __str__(self):
         return self.title
 
@@ -62,7 +62,7 @@ class Comment(models.Model):
 
     def approve(self):
         self.approved_comment = True
-        
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -79,6 +79,6 @@ class Profile(models.Model):
     def __str__(self):
         # return str(self.user)
         return self.user.username
-   
-    # itinerary = models.ForeignKey(itinerary) - potential to link user 
-    # profiles to a world map - where are my users travelling now? etc,
+
+    # itinerary = models.ForeignKey(itinerary) - potential to link user
+    # profiles to a world map - where are my users travelling now? etc
