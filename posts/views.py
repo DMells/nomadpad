@@ -9,7 +9,7 @@ def getAllCategories(request):
     categories = Category.objects.all()
 
     context = {
-        'categories':categories
+        'categories':categories,
             }
 
     return render(request, 'categories/getAllCategories.html', context)
@@ -19,7 +19,7 @@ def getAllPosts(request):
     comments = Comment.objects.all().order_by('-pub_date')
     context = {
     'latest_posts':latest_posts,
-    'comments':comments
+    'comments':comments,
     }
     return render(request, 'posts/getAllPosts.html', context)
 
@@ -28,7 +28,7 @@ def getPost(request, slug):
     comments = Comment.objects.count()
     context = {
     'post':post,
-    'comments':comments
+    'comments':comments,
     }
     return render(request, 'posts/getPost.html', context)
 
@@ -72,7 +72,7 @@ def getAuthorPosts(request, slug):
     author_posts = author_posts.filter(authorSlug=slug)
     
     context = {
-        'author_posts':author_posts
+        'author_posts':author_posts,
     }
     return render(request, 'posts/getAuthorPosts.html', context)
 
