@@ -3,11 +3,11 @@
 {% load template_tags %}
 {% block content %}
     <div>
-		{% for category in categories %}
+		{% for category in allCategories %}
 			<div>
 				<h3>
-					<a href={% url 'getCategory' slug=category.slug %}>
-					{{ category.title }}</a>
+					<a href={% url 'getCategories' parentCatSlug=category.parentCatSlug categorySlug=category.categorySlug %}>
+					{{ category.subCategory }}</a>
 				</h3>
 				<ul>
 				{% for post in category.post_set.all|slice:":3" %}

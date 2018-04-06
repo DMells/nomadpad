@@ -9,31 +9,43 @@ from imagekit.processors import *
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(blank=True, unique=True)
+    parentCategoryName = models.ForeignKey('self', blank=True, null=True)
+    parentCatSlug = models.SlugField(null=True, blank=True, default="travelling")
+    categoryName = models.CharField(max_length=200, null=True)
+    categorySlug = models.SlugField(null=True, blank=True)
     # To effect informal rendering of fields, eg : from "<Model Object>"
     # to "Title":
     def __str__(self):
-        return self.title
+        return self.categoryName
+        # # https://djangopy.org/how-to/how-to-implement-categories-in-django/
+        # # This changes the django admin section to say Travelling - > Vietnam etc.
+        # full_path = [self.categoryName]               
+        # k = self.parentCategoryName                          
+
+        # while k is not None:
+        #     full_path.append(k.categoryName)
+        #     k = k.parentCategoryName
+
+        # return ' -> '.join(full_path[::-1])
 
     class Meta:
         verbose_name_plural = "categories"
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Category, self).save(*args, **kwargs)
+         self.categorySlug = slugify(self.categoryName)
+         self.parentCatSlug = slugify(self.parentCategoryName)
+         super(Category, self).save(*args, **kwargs)
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    category = models.ForeignKey('Category', null=True, blank=True)
     summary = models.CharField(max_length=500, default=True)
     body = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)
-    category = models.ManyToManyField('Category')
     author = models.ForeignKey(User, default=True)
     titleSlug = models.SlugField(blank=True)
     authorSlug = models.SlugField(blank=True)
-    # mainimage = models.ImageField(upload_to="images", null=True)
     editedimage = ProcessedImageField(upload_to="primary_images", null=True,
                                 processors = [Transpose()],
                                 format="JPEG")

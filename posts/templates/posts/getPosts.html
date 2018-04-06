@@ -40,7 +40,7 @@
     <div class="flex justify-around">
       <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker">
       	{% for category in post.category.all %}
-    			   <a href={% url 'getCategory' slug=category.slug%} class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2" style="text-decoration:none">#{{category.title}}
+    			   <a href={% url 'getCategory' categorySlug=category.categorySlug %} class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2" style="text-decoration:none">#{{category.categoryName}}
     				  {% if post.category.count > 1 %}
     					   {% if category.index < post.category.length %},
     				     {% endif %}

@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'django_archive',
+    'mptt',
 ]
 
 MIDDLEWARE = [

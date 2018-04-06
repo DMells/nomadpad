@@ -4,24 +4,27 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CommentForm
 
-
-def getAllCategories(request):
-    categories = Category.objects.all()
+def getCategories(request, parentCatSlug, categorySlug):
+    allCategories = Category.objects.all()
+    parentCategory = allCategories.get(parentCatSlug=parentCatSlug)
+    subCategories = allCategories.filter(parentCatSlug=parentCatSlug)
 
     context = {
-        'categories':categories,
+        'parentCategory':parentCategory,
+        'subCategories':subCategories,
             }
 
-    return render(request, 'categories/getAllCategories.html', context)
+    return render(request, 'categories/getCategories.html', context)
 
-def getAllPosts(request):
-    latest_posts = Post.objects.all().order_by('-pub_date')
+def getPosts(request, parentCatSlug='travelling'):
+    latest_posts = Post.objects.all()
+    # latest_posts = latest_posts.filter(parentCatSlug=parentCatSlug).order_by('-pub_date')
     comments = Comment.objects.all().order_by('-pub_date')
     context = {
     'latest_posts':latest_posts,
     'comments':comments,
     }
-    return render(request, 'posts/getAllPosts.html', context)
+    return render(request, 'posts/getPosts.html', context)
 
 def getPost(request, slug):
     post = Post.objects.get(titleSlug=slug)
@@ -32,8 +35,8 @@ def getPost(request, slug):
     }
     return render(request, 'posts/getPost.html', context)
 
-def getCategory(request, slug):
-    category = Category.objects.get(slug=slug)
+def getCategory(request, categorySlug):
+    category = Category.objects.get(categorySlug=categorySlug)
     
     context = {
     'category':category,

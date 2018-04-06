@@ -6,13 +6,13 @@
 		{% if c == selected_cat %}
 			<li>
 				<strong>
-					<a href="{% url 'getCategory' c.slug %}" style="text-decoration:none">
+					<a href="{% url 'getCategory' c.categorySlug %}" style="text-decoration:none">
 					{{ c.title }}</a>
 				</strong>
 			</li>
 		{% else %}
 			<li>
-					<a href="{% url 'getCategory' c.slug %}" style="text-decoration:none">
+					<a href="{% url 'getCategory' c.categorySlug %}" style="text-decoration:none">
 					{{ c.title }}</a>
 			</li>
 		{% endif %}
