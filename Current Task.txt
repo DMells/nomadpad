@@ -90,6 +90,20 @@ for non-travel blog posts, such as the programming post, do i set up static page
 18/3/18:
 Menu bar below header : have a locations (which has a drop down - 'onclick drop down'), about me?, programming page, contact (for job requests).
 
+2/4/18:
+Add a previous and next post to bottom of each post.
+
+4/4/18:
+add a polls widget to ask i.e. what do you think of using facebook as a secure login?
+
+4/4/18:
+https://djangopy.org/how-to/how-to-implement-categories-in-django/
+See post date, author, views etc for good style
+
+4/4/18:
+Add a category - Asia myths - all about the paranoias I read about before coming - needing door jammers, dogs are aggressive, people not friendly, bad healthcare, police aggression everywhere, thefts 
+
+Add a people stories section, ideas or concepts that people have introduced to me, such as dream controlling, or universe energy 
 
 
 *****COMPLETED*****
