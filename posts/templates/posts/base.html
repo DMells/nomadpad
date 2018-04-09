@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-{% load template_tags %}
 {% load static %}
+{% load mptt_tags %}
+
 <html>
-
 <!-- / means the root of the current drive;
-
 ./ means the current directory;
-
 ../ means the parent of the current directory.
-
 CSS / JS should be edited in posts/static (which will show up in-browser immediately), and then collect static pushes to root static (which is useful for production with static files coming from several locations)
 -->
 
@@ -27,34 +24,76 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
  	<header id="header" class="flex flex-col border bg-blue-light text-white">
     	<div class=" flex  w-1/2">
     		<div class=" w-1/2">
-    			<h3 class="text-4xl"><a class="no-underline hover:underline text-blue-dark" href={% url "getPosts" %}>.nomadpad</a></h3>
+    			<h3 class="text-4xl">
+    				<a class="no-underline 
+    				hover:underline text-blue-dark" href={% url "getPosts" %}>
+    					.nomadpad
+    				</a>
+    			</h3>
     		</div>
 	   	</div>
 
-			<nav class="flex py-2 justify-center">
-		    	<ul class="flex flex-row">
-		    		<li class="dropdown"><button class="button dropbtn"><a class=" px-4 mx-4">Destinations</a></button>
-		    		<div class="dropdown-content flex-col border w-1/5">
-		    			
-		   				{% block sidebar_block %}
-		   					{% get_category_list category %}
-		   				{% endblock %}
+		<nav class="flex py-2 justify-center">
+	    	<ul class="flex flex-row">
+	    		<li class="dropdown">
+	    			<button class="button dropbtn">
+	    				<a class=" px-4 mx-4">
+	    					Destinations
+	    				</a>
+	    			</button>
+	    			<div class="dropdown-content flex-col border w-1/5">
+		   				{% recursetree childCats %}
+				            <a href="{% url 'getCategory' parentSlug=node.parentSlug catSlug=node.catSlug %}">{{ node.name }}</a>
+				            {{ children }}
+				    	{% endrecursetree %}
+
 		   			</div>	
-		   			</li>
+		   		</li>
 		    		
-		    		<li><button class="button dropbtn"><a class="px-4 mx-4">Adventure Loot</a><br><em>Coming soon</em></button></li>
-		    		<li><button class="button dropbtn"><a class="px-4 mx-4">One's and Zero's</a><br><em>Coming soon</em></button></li>
-		    		<li><button class="button dropbtn"><a class="px-4 mx-4">Need Something?</a><br><em>Coming soon</em></button></li>
-		    	</ul>
-		    </nav>  
+		    	<li>
+		    		<button class="button dropbtn">
+		    			<a class="px-4 mx-4">
+		    				Adventure Loot
+		    			</a>
+		    			<br>
+		    			<em>Coming soon</em>
+		    		</button>
+		    	</li>
+		    	<li>
+		    		<button class="button dropbtn">
+		    			<a class="px-4 mx-4">
+		    				One's and Zero's
+		    			</a>
+		    			<br>
+		    			<em>Coming soon</em>
+		    		</button>
+		    	</li>
+		    	<li>
+		    		<button class="button dropbtn">
+		    			<a class="px-4 mx-4">
+		    				Need Something?
+		    			</a>
+		    			<br>
+		    			<em>Coming soon</em>
+		    		</button>
+		    	</li>
+		    </ul>
+		</nav>  
 	</header>	
 
 
 
 	<body id="content" class="sans">
+	
+	
 
-			<script>
-			  window.fbAsyncInit = function() {
+	    <div class="flex-wrap justify-end w-full p-6 m-auto border">
+		    {% block content %}
+		   	{% endblock %}
+	   	</div>
+
+		<script>
+			window.fbAsyncInit = function() {
 			    FB.init({
 			      appId      : '131897610863545',
 			      cookie     : true,
@@ -81,43 +120,21 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			  js = d.createElement(s); js.id = id;
 			  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=131897610863545&autoLogAppEvents=1';
 			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
-		<script>
-var finished_rendering = function() {
-  console.log("finished rendering plugins");
-  var spinner = document.getElementById("spinner");
-  spinner.removeAttribute("style");
-  spinner.removeChild(spinner.childNodes[0]);
-}
-FB.Event.subscribe('xfbml.render', finished_rendering);
-</script>
-
-</div>
-
-    <div class="flex-wrap justify-end w-full p-6 m-auto border">
-	       	{% block content %}
-	       	{% endblock %}
-   	</div>
-
-</body>
-<footer>
-	<a class="text-sm flex justify-center" href={% url 'privacypolicy' %} >Nomad Pad Privacy Policy</a>
-</footer>
-
+			}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<script>
+				var finished_rendering = function() {
+  				console.log("finished rendering plugins");
+  				var spinner = document.getElementById("spinner");
+  				spinner.removeAttribute("style");
+  				spinner.removeChild(spinner.childNodes[0]);
+					}
+				FB.Event.subscribe('xfbml.render', finished_rendering);
+		</script>
+	</body>
+	<footer>
+		<a class="text-sm flex justify-center" href={% url 'privacypolicy' %} >Nomad Pad Privacy Policy
+		</a>
+	</footer>
 </html>
-<!--
-{# {% block image %} #}
-				{# <img src="{% static "images/Plitvice_Lakes.jpg" %}" class="w-auto h-auto mb-6 shadow-lg rounded"> #}
-				{# {% endblock %} #}
-   
-{# <h3>Wherever you are, you're always at home</h3> #}
-{# <h4>The world, today. Always</h4> #}
-{# <h4>No affiliates. The world's first data-driven travel guru.</h4> #}
-{# <div class=" invisible flex items-center  text-3l w-1/2 justify-end p-4">
-			<a class="text-white" href=# style="text-decoration:none"> Login </a>
-			•
-			<a class="text-white" href=# style="text-decoration:none"> Logout </a> 
-			•
-			<a class="text-white" href=# style="text-decoration:none"> Sign-Up </a>
-		</div> #}
--->
+
