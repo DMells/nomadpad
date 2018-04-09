@@ -1,16 +1,18 @@
-{% extends '../posts/base.html' %}
-{% load static %}
-{% load mptt_tags %}
 
-{% block content %}  
-  <div>
-    <h2 class="flex justify-center">{{ childCat.name}}</h2>
-    {% for post in posts %}
+{% extends "posts/base.html" %} 
+{% load static %}
+{% block content %}	
+{% load mptt_tags %}
+  {% if latest_posts %}
+{#   <a href="#bottom">This journey starts here</a> #}
+  
+
+	  {% for post in latest_posts %}
       {% if post.show_in_posts %} 
-        <div class="w-auto flex justify-center"> {# To align the cards to the middle #}
+  	    <div class="w-auto flex justify-center"> {# To align the cards to the middle #}
           <div class="max-w-sm rounded overflow-hidden shadow-lg mb-6 my-6  ml-6">
             <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.titleSlug %}">
-              <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
+    		      <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
             </a>
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">   
@@ -51,4 +53,6 @@
         </div>
       {% endif %}
     {% endfor %}
+  {% endif %}
+
 {% endblock content %}

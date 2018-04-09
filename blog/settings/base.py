@@ -46,7 +46,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 
 
-
+MPTT_ADMIN_LEVEL_INDENT = 20
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'django_archive',
+    'mptt',
 ]
 
 MIDDLEWARE = [
