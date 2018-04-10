@@ -13,7 +13,7 @@ class Category(MPTTModel):
     # A TreeForeignKey is just a regular ForeignKey that renders form fields 
     # differently in the admin and a few other places.
     parent = TreeForeignKey('self', null=True, blank=True, 
-        related_name='children', db_index=True)
+        related_name='children', db_index=True )
     parentSlug = models.SlugField(null=True, blank=True)
 
     class MPTTMeta:
