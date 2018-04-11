@@ -11,10 +11,34 @@
 			<em>{{post.summary}}</em>
 		</div><br><br>
 		{{post.body|safe}}
-	</div><br><br><br><br>
+	</div><br><br>
+
+{# Previous post button #}
+	<div class="flex justify-center">
+{# If there is actually a previous post, use this CSS styling #}
+		{% if previousPostSlug %}		
+  			<button class="bg-blue-light hover:bg-blue font-bold py-2 px-4 mr-3 rounded-l">
+		{% else %}
+{# If there isn't a previous post, use this CSS styling (invisible)  #}
+  			<button class=" invisible bg-blue-light hover:bg-blue font-bold py-2 px-4 mr-3 rounded-l">	
+		{% endif %}
+    		<a class="no-underline text-white" href="{% url 'getPost' postSlug=previousPostSlug parentSlug=post.category.parentSlug catSlug=post.category.catSlug %}"> &lArr; Prev. Post </a>
+  			</button>
+ 
+
+  		{% if nextPostSlug %}
+  			<button class="bg-blue-light hover:bg-blue font-bold py-2 px-4 rounded-r">
+  		{% else %}
+  			<button class=" invisible bg-blue-light hover:bg-blue font-bold py-2 px-4 rounded-r">
+  		{% endif %}
+			<a  href="{% url 'getPost' postSlug=nextPostSlug parentSlug=post.category.parentSlug catSlug=post.category.catSlug %}" class=" text-white no-underline">Next Post &rArr; </a>
+			</button>
+	</div>
+	
+	<br><br>
 	
 	<div class="fb-login-button pr-8" data-width="100%" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
-	<div class="fb-comments" data-href="https://www.nomadpad.io/{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.titleSlug %}" data-width="100%" data-numposts="5"></div>
+	<div class="fb-comments" data-href="https://www.nomadpad.io/{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}" data-width="100%" data-numposts="5"></div>
 		
 {% endblock %}

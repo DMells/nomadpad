@@ -6,7 +6,7 @@ var pug = require('gulp-pug');
 var autoprefixer = require('autoprefixer');
 //Define base folders
 var src = '/src/';
-var dest = '/posts/static/';
+var dest = '/static/';
 // Include plugins
 var plugins = require("gulp-load-plugins")({
   pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
@@ -47,7 +47,7 @@ gulp.task('tailwind', function () {
   var postcss = require('gulp-postcss');
   var tailwindcss = require('tailwindcss');
 
-  return gulp.src('./src/styles.css')
+  return gulp.src('src/styles.css')
     .pipe(postcss([
       tailwindcss('tailwind.js'),
       require('autoprefixer'),
@@ -57,16 +57,16 @@ gulp.task('tailwind', function () {
 });
 
 gulp.task('html', function() {
-  gulp.src('./templates/posts/base.html')
+  gulp.src('./templates/posts/*.html')
     .pipe(pug())
     .pipe(gulp.dest(dest + 'html'))
 });
 
 // Watch for changes in files
 gulp.task('watch', function() {
-   gulp.watch(dest + 'css/*.css', ['css']);
-   gulp.watch(dest + 'html/*.html', ['html']);
-   gulp.watch(dest + 'js/*.js', ['scripts']);
+   gulp.watch(dest + 'css/*', ['css']);
+   gulp.watch(dest + 'html/*', ['html']);
+   gulp.watch(dest + 'js/*', ['scripts']);
 
 });
 

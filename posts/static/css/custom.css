@@ -11,7 +11,9 @@ header {
 }
 
 
-
+/*-------------------------------------- */
+/* -------- Category drop down --------- */
+/*-------------------------------------- */
 /* Dropdown Button */
 .dropbtn {
     color: white;
@@ -65,17 +67,3 @@ header {
 .button:hover {
     background-color: #477DB3;
 }
-
-/*
-.dropdown:hover {
-    content: '\25B2'; 
-    font-size: 13px;
-    
-    float: left;
-    margin-right: 5px;
-
-}
-*/
-/*.active:hover {
-    content: "\25BC";  Unicode character for "DOWN" arrow
-}*/

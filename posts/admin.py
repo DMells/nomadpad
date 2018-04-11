@@ -4,7 +4,7 @@ from .models import Post, Category
 
 class PostAdmin(admin.ModelAdmin):
   prepopulated_fields = {
-  	"titleSlug": ("title",),
+  	"postSlug": ("title",),
   }
 
 # # to specify which field should be indented in the admin page admin

@@ -9,14 +9,14 @@
 
 	  {% for post in latest_posts %}
       {% if post.show_in_posts %} 
-  	    <div class="w-auto flex justify-center"> {# To align the cards to the middle #}
-          <div class="max-w-sm rounded overflow-hidden shadow-lg mb-6 my-6  ml-6">
-            <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.titleSlug %}">
+  	    <div class="w-auto border flex justify-center"> {# To align the cards to the middle #}
+          <div class="max-w-sm border rounded overflow-hidden shadow-lg mb-6 my-6 ml-6">
+            <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
     		      <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
             </a>
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">   
-                <a class="no-underline hover:underline" href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.titleSlug %}" >
+                <a class="no-underline hover:underline" href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}" >
                   <h3>{{post.title}}</h3>
                 </a>
              </div>
@@ -32,7 +32,7 @@
 
                 <div class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2"> 
                     Comments: 
-                      <span class="fb-comments-count" data-href="https://www.nomadpad.io/{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.titleSlug %}">
+                      <span class="fb-comments-count" data-href="https://www.nomadpad.io/{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
                       </span>
                 </div>
 

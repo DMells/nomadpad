@@ -16,13 +16,27 @@ def getPost(request, parentSlug, catSlug, postSlug):
     parent = Category.objects.root_nodes()
     childCats = Category.objects.filter(parentSlug=parentSlug)
     childCat = childCats.get(catSlug=catSlug)
-    post = Post.objects.get(titleSlug=postSlug)
+    post = Post.objects.get(postSlug=postSlug)
+    try: 
+        nextPostSlug = post.get_next_by_pub_date().postSlug
+    except:
+        nextPostSlug = None
+    try:
+        previousPostSlug = post.get_previous_by_pub_date().postSlug
+        
+    except:
+            previousPostSlug = None
+            
+
+
 
     context = {
     'parent':parent,
     'childCat':childCat,
     'childCats':childCats,
-    'post':post
+    'post':post,
+    'nextPostSlug':nextPostSlug,
+    'previousPostSlug':previousPostSlug,
     }
     return render(request, 'posts/getPost.html', context)
 

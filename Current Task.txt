@@ -1,6 +1,3 @@
-
-
-
 28/11:
 Add in a population script as per Tango with Django - ensures you can recreate your data automatically after a migration
 
@@ -13,15 +10,9 @@ Add in a population script as per Tango with Django - ensures you can recreate y
 - likes counter
 - stackoverflow style points system
 
-30/11:
-for posts with multiple categories, add commas in between the 'found in' bits to separate each category named.
-
-
 
 1/1/18:
 Add javascript to make login/logout appear/hide as needed, depending on whether the user is logged in.
-
-
 
 3/1/18:
 see mindvalleyacademy.com for great landing page intro
@@ -54,8 +45,6 @@ Automatic numbering of posts in the titles
 3/3/18:
 Ability to sort posts by newest, oldest
 
-
-
 8/3/18:
 Long term - could have a who I'm travelling with section, and they automatically get access to their own blog writing section, and they can add their friends etc, so becomes a platform for viral blogging.
 
@@ -72,9 +61,6 @@ Separate page for everyone who ive met, and where and the circumstances, via fac
 15/3/18:
 Maybe a map next to each post, which links the last post location to the new one, and has an animation of an arrow moving from there to the new location.
 
-15/3/18:
-Posts by category - the hide if unfinished doesnt work, possibly as not linked to correct view.
-
 16/3/18:
 Add number of views to posts
 
@@ -82,16 +68,7 @@ Add number of views to posts
 "secure the django admin" - chapter in 2 scoops.
 
 17/3/18:
-complete SSH from PythonAnywhere email to then set up facebook login properly
-
-17/3/18:
 for non-travel blog posts, such as the programming post, do i set up static page for it, or have a filter saying if not travel-post, then exclude from the main posts template. Probably easier to have a static page, but then wouldn't be able to use ckeditor.
-
-18/3/18:
-Menu bar below header : have a locations (which has a drop down - 'onclick drop down'), about me?, programming page, contact (for job requests).
-
-2/4/18:
-Add a previous and next post to bottom of each post.
 
 4/4/18:
 add a polls widget to ask i.e. what do you think of using facebook as a secure login?
@@ -105,6 +82,12 @@ Add a category - Asia myths - all about the paranoias I read about before coming
 
 Add a people stories section, ideas or concepts that people have introduced to me, such as dream controlling, or universe energy 
 
+11/4/18:
+Add cookies which track posts the user hasn't seen - so loads at the point they finished last time. Maybe add a widget which says read/unread
+
+11/4/18:
+
+Collaborative tutorial approach - people can post their own videos/posts to my website explaining how to build my blog - they can get a share of advertising revenues depending on contribution percentage?
 
 *****COMPLETED*****
 {# 21/11:
@@ -140,3 +123,14 @@ Set up facebook login and comments #}
 
 {# 18/3/18:
 img optimisation #}
+
+{# 
+18/3/18:
+Menu bar below header : have a locations (which has a drop down - 'onclick drop down'), about me?, programming page, contact (for job requests). #}
+
+{# 17/3/18:
+complete SSH from PythonAnywhere email to then set up facebook login properly #}
+
+
+{# 15/3/18:
+Posts by category - the hide if unfinished doesnt work, possibly as not linked to correct view. #}

@@ -40,7 +40,7 @@ class Post(models.Model):
     body = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, default=True)
-    titleSlug = models.SlugField(blank=True)
+    postSlug = models.SlugField(blank=True)
     editedimage = ProcessedImageField(upload_to="primary_images", null=True,
                                 processors = [Transpose()],
                                 format="JPEG")
@@ -48,8 +48,11 @@ class Post(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.titleSlug = slugify(self.title)
+        self.postSlug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering= ['-pub_date']
