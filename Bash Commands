@@ -1,3 +1,4 @@
 GO - makemigrations, migrate and runserver on local
 SHELL - runs python shell on local
 RUN - runs just the local server
+COLLECT - collecstatic files

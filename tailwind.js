@@ -171,6 +171,10 @@ module.exports = {
     'md': '768px',
     'lg': '992px',
     'xl': '1200px',
+    'mobile': '320px',
+    'tablet': '768px',
+    'laptop': '1024px',
+
   },
 
 

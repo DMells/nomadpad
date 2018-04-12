@@ -29,13 +29,16 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = 'in-post_images/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        'extraPlugins' : 'image2',
+        
         
     }
 }
+
+# 'extraPlugins' : 'image2',
 env = environ.Env(
     DEBUG=(bool, False),
 )
@@ -57,11 +60,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'social_django',
+    'mptt',
     'ckeditor',
     'ckeditor_uploader',
     'imagekit',
     'django_archive',
-    'mptt',
+
 ]
 
 MIDDLEWARE = [

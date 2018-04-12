@@ -44,7 +44,6 @@ def getCategory(request, parentSlug, catSlug):
     childCats = Category.objects.filter(parentSlug=parentSlug)
     childCat = childCats.get(catSlug=catSlug)
     posts = Post.objects.filter(category=childCat)
-    # catA = Category.objects.root_nodes()
     
     context = {
     'childCat':childCat,

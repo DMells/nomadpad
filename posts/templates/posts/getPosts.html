@@ -9,8 +9,8 @@
 
 	  {% for post in latest_posts %}
       {% if post.show_in_posts %} 
-  	    <div class="w-auto border flex justify-center"> {# To align the cards to the middle #}
-          <div class="max-w-sm border rounded overflow-hidden shadow-lg mb-6 my-6 ml-6">
+  	    <div class=" border flex justify-center"> {# To align the cards to the middle #}
+          <div class="md:max-w-sm border rounded overflow-hidden shadow-lg mb-6 my-6 ml-6">
             <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
     		      <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
             </a>
