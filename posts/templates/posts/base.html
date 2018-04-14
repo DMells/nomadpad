@@ -25,65 +25,61 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 		<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
  	</head>
  	
+ 	<header id="header" class=" font-sans flex flex-col border bg-blue-light text-white">	
+    	<div class="flex border">
+    		<h3 class="text-4xl w-1/4">
+    			<a class="no-underline 
+    			hover:underline text-blue-dark" href={% url "getPosts" %}>
+    				.nomadpad
+   				</a>
+   			</h3>
+			<nav class="flex justify-center">
+		    	<ul class="flex flex-row">
+		    		<li class="dropdown">
+		    			<button class="button min-h-full dropdown dropbtn">
+		    				<a class=" px-4 mx-4">
+		    					Destinations
+		    				</a>
+		    			</button>
+		    			<div class="dropdown-content flex-col w-1/5">
+			   				{% recursetree childCats %}
+					            <a href="{% url 'getCategory' parentSlug=node.parentSlug catSlug=node.catSlug %}">{{ node.name }}</a>
+					            {{ children }}
+					    	{% endrecursetree %}
 
- 	<header id="header" class=" font-sans flex flex-col border bg-blue-light text-white">
-    	<div class=" flex  w-1/2">
-    		<div class=" w-1/2">
-    			<h3 class="text-4xl">
-    				<a class="no-underline 
-    				hover:underline text-blue-dark" href={% url "getPosts" %}>
-    					.nomadpad
-    				</a>
-    			</h3>
-    		</div>
-	   	</div>
-
-		<nav class="flex py-2 justify-center">
-	    	<ul class="flex flex-row">
-	    		<li class="dropdown">
-	    			<button class="button dropbtn">
-	    				<a class=" px-4 mx-4">
-	    					Destinations
-	    				</a>
-	    			</button>
-	    			<div class="dropdown-content flex-col border w-1/5">
-		   				{% recursetree childCats %}
-				            <a href="{% url 'getCategory' parentSlug=node.parentSlug catSlug=node.catSlug %}">{{ node.name }}</a>
-				            {{ children }}
-				    	{% endrecursetree %}
-
-		   			</div>	
-		   		</li>
-		    		
-		    	<li>
-		    		<button class="hidden button dropbtn">
-		    			<a class="px-4 mx-4">
-		    				Adventure Loot
-		    			</a>
-		    			<br>
-		    			<em>Coming soon</em>
-		    		</button>
-		    	</li>
-		    	<li>
-		    		<button class="button dropbtn">
-		    			<a class="px-4 mx-4">
-		    				One's and Zero's
-		    			</a>
-		    			<br>
-		    			<em>Coming soon</em>
-		    		</button>
-		    	</li>
-		    	<li>
-		    		<button class="hidden button dropbtn">
-		    			<a class="px-4 mx-4">
-		    				Need Something?
-		    			</a>
-		    			<br>
-		    			<em>Coming soon</em>
-		    		</button>
-		    	</li>
-		    </ul>
-		</nav>  
+			   			</div>	
+			   		</li>
+			    		
+			    	<li>
+			    		<button class="hidden min-h-full button dropbtn">
+			    			<a class="px-4 mx-4">
+			    				Adventure Loot
+			    			</a>
+			    			<br>
+			    			<em>Coming soon</em>
+			    		</button>
+			    	</li>
+			    	<li>
+			    		<button class="button min-h-full dropbtn">
+			    			<a class="px-4 mx-4">
+			    				One's and Zero's
+			    			</a>
+			    			<br>
+			    			
+			    		</button>
+			    	</li>
+			    	<li>
+			    		<button class=" button min-h-full dropbtn">
+			    			<a class="px-4 mx-4">
+			    				Need Something?
+			    			</a>
+			    			<br>
+			    			<em>Coming soon</em>
+			    		</button>
+			    	</li>
+			    </ul>
+			</nav>  
+		</div>
 	</header>	
 
 
