@@ -12,7 +12,7 @@
       {# This div is the entire width of the page, per card #}
   	    <div class="font-family-sans flex justify-center ">
         {# The actual card div itself #}
-          <div class="w-95% md:w-3/5 border rounded overflow-hidden shadow-lg mb-6 my-6 m-6">
+          <div class="w-95% md:w-3/5 rounded overflow-hidden shadow-lg mb-6 my-6 m-6">
             <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
     		      <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
             </a>
