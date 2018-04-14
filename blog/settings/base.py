@@ -33,12 +33,13 @@ CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
+        'extraPlugins' : 'image2',
         
         
     }
 }
 
-# 'extraPlugins' : 'image2',
+
 env = environ.Env(
     DEBUG=(bool, False),
 )

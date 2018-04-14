@@ -10,10 +10,6 @@ Add in a population script as per Tango with Django - ensures you can recreate y
 - likes counter
 - stackoverflow style points system
 
-
-1/1/18:
-Add javascript to make login/logout appear/hide as needed, depending on whether the user is logged in.
-
 3/1/18:
 see mindvalleyacademy.com for great landing page intro
 
@@ -64,8 +60,6 @@ Maybe a map next to each post, which links the last post location to the new one
 16/3/18:
 Add number of views to posts
 
-17/3/18:
-"secure the django admin" - chapter in 2 scoops.
 
 17/3/18:
 for non-travel blog posts, such as the programming post, do i set up static page for it, or have a filter saying if not travel-post, then exclude from the main posts template. Probably easier to have a static page, but then wouldn't be able to use ckeditor.
@@ -83,11 +77,14 @@ Add a category - Asia myths - all about the paranoias I read about before coming
 Add a people stories section, ideas or concepts that people have introduced to me, such as dream controlling, or universe energy 
 
 11/4/18:
-Add cookies which track posts the user hasn't seen - so loads at the point they finished last time. Maybe add a widget which says read/unread
+Add cookies which track posts the user hasn't seen - so loads at the point they finished last time. Maybe add a widget which says read/unread. or a red/orange box in the main card section for un-read, and a light green bubble for read.
 
 11/4/18:
 
 Collaborative tutorial approach - people can post their own videos/posts to my website explaining how to build my blog - they can get a share of advertising revenues depending on contribution percentage?
+
+14/4/18:
+Add a welcome back message if user logged in with fb before. Or a hello {{name}}
 
 *****COMPLETED*****
 {# 21/11:
@@ -134,3 +131,7 @@ complete SSH from PythonAnywhere email to then set up facebook login properly #}
 
 {# 15/3/18:
 Posts by category - the hide if unfinished doesnt work, possibly as not linked to correct view. #}
+
+
+{# 17/3/18:
+"secure the django admin" - chapter in 2 scoops. #}

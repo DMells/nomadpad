@@ -5,6 +5,7 @@ def getPosts(request):
     latest_posts = Post.objects.all().order_by('-pub_date')
     Travelling = Category.objects.filter(name="Travelling")
     childCats = Category.objects.filter(parent=Travelling)
+    
     # childCats = childCats.filter(children__isnull=True)
     context = {
     'latest_posts':latest_posts,
