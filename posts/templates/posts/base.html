@@ -25,7 +25,7 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 		<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
  	</head>
  	
- 	<header id="header" class=" font-sans flex flex-col border bg-blue-light text-white">	
+ 	<header id="header" class="font-sans flex flex-col border bg-blue-light text-white">	
     	<div class="flex border">
     		<h3 class="text-4xl w-1/4">
     			<a class="no-underline 
@@ -33,15 +33,16 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
     				.nomadpad
    				</a>
    			</h3>
-			<nav class="flex justify-center">
-		    	<ul class="flex flex-row">
+			<nav class="flex justify-end w-3/4">
+				<div class = "hidden md:block" >
+		    	<ul class="flex w-full flex-row">
 		    		<li class="dropdown">
 		    			<button class="button min-h-full dropdown dropbtn">
-		    				<a class=" px-4 mx-4">
+		    				<a class="">
 		    					Destinations
 		    				</a>
 		    			</button>
-		    			<div class="dropdown-content flex-col w-1/5">
+		    			<div class="dropdown-content flex-col">
 			   				{% recursetree childCats %}
 					            <a href="{% url 'getCategory' parentSlug=node.parentSlug catSlug=node.catSlug %}">{{ node.name }}</a>
 					            {{ children }}
@@ -52,7 +53,7 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			    		
 			    	<li>
 			    		<button class="hidden min-h-full button dropbtn">
-			    			<a class="px-4 mx-4">
+			    			<a class="">
 			    				Adventure Loot
 			    			</a>
 			    			<br>
@@ -61,7 +62,7 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			    	</li>
 			    	<li>
 			    		<button class="button min-h-full dropbtn">
-			    			<a class="px-4 mx-4">
+			    			<a class="">
 			    				One's and Zero's
 			    			</a>
 			    			<br>
@@ -70,7 +71,7 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			    	</li>
 			    	<li>
 			    		<button class=" button min-h-full dropbtn">
-			    			<a class="px-4 mx-4">
+			    			<a class="">
 			    				Need Something?
 			    			</a>
 			    			<br>
@@ -78,29 +79,30 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			    		</button>
 			    	</li>
 			    </ul>
+			    
+			</div>
 			</nav>  
 		</div>
+		
+
+		
 	</header>	
 
 
 
 	<body id="content" class="font-sans">
-	
-	
-
-	    <div class="flex-wrap bg-blue-lightest justify-end w-full p-6 m-auto">
-		    {% block content %}
-		   	{% endblock %}
-	   	</div>
-
-		<script>
+<script>
 			window.fbAsyncInit = function() {
 			    FB.init({
 			      appId      : '131897610863545',
 			      cookie     : true,
 			      xfbml      : true,
-			      version    : 'v2.12'
+			      version    : 'v2.12',
+// added status as per https://developers.facebook.com/docs/javascript/advanced-setup
+			      status: true
 			    });
+
+
 			      
 			    FB.AppEvents.logPageView();   
 			      
@@ -114,6 +116,23 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			     fjs.parentNode.insertBefore(js, fjs);
 			   }(document, 'script', 'facebook-jssdk'));
 			</script>
+
+	<div class="hidden md:block bg-blue-lightest text-center py-4 lg:px-4">
+  <div class="p-2 bg-blue-light items-center text-white leading-none rounded-full flex inline-flex">
+    <span class="flex border rounded-full bg-blue-light px-2 py-1 text-xs font-bold mr-3">Welcome</span>
+    <p class=" font-semibold mr-2 text-left flex-auto">My journey starts <a href="#bottom" class="text-white"> here</a></p>
+  </div>
+</div>
+
+
+
+
+	    <div class="flex-wrap bg-blue-lightest justify-end w-full p-6 m-auto">
+		    {% block content %}
+		   	{% endblock %}
+	   	</div>
+
+		
 			<div id="fb-root"></div>
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];

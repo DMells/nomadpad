@@ -5,10 +5,10 @@
 {% load mptt_tags %}
   {% if latest_posts %}
 {#   <a href="#bottom">This journey starts here</a> #}
-  
-
+   
 	  {% for post in latest_posts %}
       {% if post.show_in_posts %} 
+       
       {# This div is the entire width of the page, per card #}
   	    <div class="font-family-sans flex justify-center ">
         {# The actual card div itself #}
@@ -58,6 +58,7 @@
         </div>
       {% endif %}
     {% endfor %}
+    <a name="bottom"></a>
   {% endif %}
 
 {% endblock content %}
