@@ -10,18 +10,30 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 -->
 
  	<head lang="en">
+ 		<title>Nomad Pad</title>
+ 		<!-- meta data -->
  		<meta charset="UTF-8" />
  		<meta property="fb:app_id" content="131897610863545"/>
  		<meta name='viewport' content='width=device-width'/>
- 		<title>Nomad Pad</title>
+ 		<!-- stylesheets -->
+ 		<link rel="stylesheet" href="/static/css/custom.css">
+		<link rel="stylesheet" href="/static/css/styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+		<!-- scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 		<script src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 		<script src="/static/js/scripts.js"></script>
-		<link rel="stylesheet" href="/static/css/custom.css">
-		<link rel="stylesheet" href="/static/css/styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117699700-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-117699700-1');
+		</script>
  	</head>
  	
  	<header id="header" class="font-sans flex flex-col border bg-blue-light text-white">	

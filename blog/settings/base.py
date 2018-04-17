@@ -33,12 +33,11 @@ CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        'extraPlugins' : 'image2',
-        
-        
+        'extraPlugins' : 'image2,imageresponsive',
+        'removePlugins' : 'image',
     }
-}
 
+}
 
 env = environ.Env(
     DEBUG=(bool, False),
@@ -66,6 +65,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'django_archive',
+    
 
 ]
 
