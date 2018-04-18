@@ -21,10 +21,10 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
 		<!-- scripts -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 		<script src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
-		<script src="/static/js/scripts.js"></script>
+		<script src="{% static "js/jquery.js" %}"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117699700-1"></script>
 		<script>
@@ -34,19 +34,26 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 
 		  gtag('config', 'UA-117699700-1');
 		</script>
+
  	</head>
- 	
- 	<header id="header" class="font-sans flex flex-col border bg-blue-light text-white">	
-    	<div class="flex border">
-    		<h3 class="text-4xl w-1/4">
+ 	<body>
+ 	<header id="header" class="font-sans bg-blue-light text-white md:flex">	
+    		<h3 name="title" class="flex justify-between text-4xl w-full md:w-1/4">
     			<a class="no-underline 
     			hover:underline text-blue-dark" href={% url "getPosts" %}>
     				.nomadpad
    				</a>
+  				<div class="block md:hidden p-2">
+				    <button id="navbar" class="flex items-center px-3 py-2 rounded text-teal-lighter border-white-light hover:text-white hover:border-white">
+				      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><a href="">
+				      	Menu</a><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+				    </button>
+  				</div>
    			</h3>
-			<nav class="flex justify-end w-3/4">
-				<div class = "hidden md:block" >
-		    	<ul class="flex w-full flex-row">
+   			
+			<nav class="md:w-3/4 pr-4">
+		    	<ul class="md:flex md:w-full md:flex-row md:justify-end">
+		    		<div id="mynavbar" class="navbar md:block md:flex">
 		    		<li class="dropdown">
 		    			<button class="button min-h-full dropdown dropbtn">
 		    				<a class="">
@@ -61,15 +68,6 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 
 			   			</div>	
 			   		</li>
-			    		
-			    	<li>
-			    		<button class="hidden min-h-full button dropbtn">
-			    			<a class="">
-			    				Adventure Loot
-			    			</a>
-			    			<br>
-			    			<em>Coming soon</em>
-			    		</button>
 			    	</li>
 			    	<li>
 			    		<button class="button min-h-full dropbtn">
@@ -90,18 +88,10 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			    		</button>
 			    	</li>
 			    </ul>
-			    
-			</div>
-			</nav>  
-		</div>
-		
-
-		
+			</div>	
+		</nav>  
 	</header>	
-
-
-
-	<body id="content" class="font-sans">
+		
 <script>
 			window.fbAsyncInit = function() {
 			    FB.init({
@@ -132,11 +122,12 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 
 
 
-
-	    <div class="flex-wrap bg-blue-lightest justify-end w-full p-6 m-auto">
+<!-- body has content id as jquery looks for this to ensure body and
+header do not intersect  -->
+	    <div id="content" class="flex-wrap bg-blue-lightest justify-end w-full p-6 m-auto">
 		    {% block content %}
 		   	{% endblock %}
-	   	</div>
+	   	
 
 		
 			<div id="fb-root"></div>

@@ -573,8 +573,7 @@ textarea {
 }
 
 img {
-  max-width: 700px;
-  width : 100%;
+  max-width: 100%;
 }
 
 button,
@@ -630,6 +629,7 @@ button,
  * @import "components/forms";
  */
 
+}
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -20083,3 +20083,6 @@ button,
   .xl\:z-auto {
     z-index: auto;
   }
+
+  
+}

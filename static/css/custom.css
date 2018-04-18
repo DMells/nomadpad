@@ -1,14 +1,8 @@
+
 ul {
 	list-style-type:none;
 
 }
-
-/*.field-body img[style] {
-width:auto !important;
-height:auto !important;
-max-width: 600px !important;
-}*/
-
 
 header {
 	
@@ -62,17 +56,10 @@ header {
     display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-
-.button {
-    cursor: pointer;    
-    transition: 1s;
+.navbar {
+    display:none;
 }
 
-.button:hover {
-    background-color: #477DB3;
+.navbar.responsive {
+    display:block;
 }
-
-/*Custom Colours*/
-
-
