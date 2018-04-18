@@ -237,6 +237,13 @@ img {
   border-style: none;
 }
 
+.field-body img[style] {
+width:auto !important;
+height:auto !important;
+max-width: 600px !important;
+}
+
+
 /**
  * Hide the overflow in IE.
  */
@@ -570,10 +577,6 @@ button,
 
 textarea {
   resize: vertical;
-}
-
-img {
-  max-width: 100%;
 }
 
 button,

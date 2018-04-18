@@ -3,17 +3,19 @@ ul {
 
 }
 
+.field-body img[style] {
+width:auto !important;
+height:auto !important;
+max-width: 600px !important;
+}
+
+
 header {
 	
     position: fixed;
     top: 0;
     width: 100%;
 }
-
-/*.img { 
-    max-width: auto !important;
-    max-height: auto !important;
- }*/
 /*-------------------------------------- */
 /* -------- Category drop down --------- */
 /*-------------------------------------- */
