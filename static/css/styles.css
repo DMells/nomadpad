@@ -897,7 +897,7 @@ button,
 }
 
 .bg-blue-lightest {
-  background-color: #eff8ff;
+  background-color: #725e9e;
 }
 
 .bg-indigo-darkest {
@@ -20083,6 +20083,7 @@ button,
   .xl\:z-auto {
     z-index: auto;
   }
+
 
   
 }

@@ -37,12 +37,17 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 
  	</head>
  	<body>
- 	<header id="header" class="font-sans bg-blue-light text-white md:flex">	
+ 	<header id="header" class="font-sans text-white md:flex">	
     		<h3 name="title" class="flex justify-between text-4xl w-full md:w-1/4">
-    			<a class="no-underline 
+    			<!--<a class="no-underline 
     			hover:underline text-blue-dark" href={% url "getPosts" %}>
     				.nomadpad
-   				</a>
+   				</a>-->
+
+   				  <a href="{% url 'getPosts' %}">
+    				<img src="/media/primary_images/HomeLogoSM.png" class="p-2" />
+            		</a>
+
   				<div class="block md:hidden p-2">
 				    <button id="navbar" class="flex items-center px-3 py-2 rounded text-teal-lighter border-white-light hover:text-white hover:border-white">
 				      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><a href="">
@@ -51,7 +56,7 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
   				</div>
    			</h3>
    			
-			<nav class="md:w-3/4 pr-4">
+			<nav class="md:w-3/4 pr-4 flex items-center">
 		    	<ul class="md:flex md:w-full md:flex-row md:justify-end">
 		    		<div id="mynavbar" class="navbar md:block md:flex">
 		    		<li class="dropdown">
@@ -68,18 +73,17 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 
 			   			</div>	
 			   		</li>
-			    	</li>
 			    	<li>
 			    		<button class="button min-h-full dropbtn">
 			    			<a class="">
 			    				One's and Zero's
 			    			</a>
 			    			<br>
-			    			
+			    			<em>Coming soon</em>
 			    		</button>
 			    	</li>
 			    	<li>
-			    		<button class=" button min-h-full dropbtn">
+			    		<button class="button min-h-full dropbtn">
 			    			<a class="">
 			    				Need Something?
 			    			</a>
@@ -87,10 +91,12 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 			    			<em>Coming soon</em>
 			    		</button>
 			    	</li>
-			    </ul>
-			</div>	
+			    </div>	
+			</ul>
 		</nav>  
-	</header>	
+	</header>
+
+		
 		
 <script>
 			window.fbAsyncInit = function() {
@@ -122,12 +128,18 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
 
 
 
-<!-- body has content id as jquery looks for this to ensure body and
+<!-- div has content id as jquery looks for this to ensure body and
 header do not intersect  -->
-	    <div id="content" class="flex-wrap bg-blue-lightest justify-end w-full p-6 m-auto">
-		    {% block content %}
+
+	    <div id="content" class="flex-wrap mainbg justify-end w-full p-6">
+	  		<div>
+	  		<img src="/media/primary_images/NomadPadSand.png" class="flex justify-end m-auto"/>
+	  		</div>
+	 	    {% block content %}
+		      	
 		   	{% endblock %}
 	   	
+	   	</div>
 
 		
 			<div id="fb-root"></div>
@@ -149,8 +161,8 @@ header do not intersect  -->
 				FB.Event.subscribe('xfbml.render', finished_rendering);
 		</script>
 	</body>
-	<footer>
-		<a class="text-sm flex justify-center" href={% url 'privacypolicy' %} >Nomad Pad Privacy Policy
+	<footer class="blog-bg-dark-purple m-auto">
+		<a class="text-decoration-none text-white flex justify-center" href={% url 'privacypolicy' %} >Nomad Pad Privacy Policy
 		</a>
 	</footer>
 </html>
