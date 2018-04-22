@@ -6,16 +6,22 @@
   <div>
     <h2 class="flex justify-center">{{ childCat.name}}</h2>
     {% for post in posts %}
-      {% if post.show_in_posts %} 
+            {% if post.show_in_posts %} 
+       
       {# This div is the entire width of the page, per card #}
-        <div class="font-family-sans flex justify-center ">
-        {# The actual card div itself #}
+        <div class="corners font-family-sans flex justify-center ">
+        <!-- This is for the corner brackets (related to class corners above) -->
+        <div class="top left"></div>
+        <div class="top right"></div>
+        <div class="bottom right"></div>
+        <div class="bottom left"></div>
+        
           <div class="w-95% md:max-w-md rounded overflow-hidden shadow-lg mb-6 my-6 m-6">
             <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
               <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
             </a>
             
-            <div class="px-6 bg-blue-light py-4">
+            <div class="px-6 blog-bg-light-purple py-4">
               <div class="font-bold text-xl mb-2 flex text-center justify-center md:flex-none">   
                 <a class="no-underline hover:underline text-white " href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}" >
                   <h3>{{post.title}}</h3>
@@ -25,27 +31,27 @@
                 <em>{{post.summary}}</em>
               </p>
             </div>
-            <div class="hidden md:block bg-blue-light px-6 py-4 pb-5">
+            <div class="hidden md:block blog-bg-light-purple px-6 py-4 pb-5">
               <div class="flex justify-around pb-3">
-                <span class="align-center inline-block bg-blue text-white rounded-full px-3 py-1 text-sm font-semibold mr-2">
+                <span class="align-center inline-block post-meta post-meta rounded-full px-3 py-1 text-sm font-semibold mr-2">
                   By : {{post.author}}
                 </span>
 
-                <span class="align-center inline-block bg-blue text-white rounded-full px-3 py-1 text-sm font-semibold mr-2">
+                <span class="align-center inline-block post-meta post-meta rounded-full px-3 py-1 text-sm font-semibold mr-2">
                        <a href="{% url 'getCategory' catSlug=post.category.catSlug parentSlug=post.category.parentSlug %}" 
-                          class="inline-block text-white rounded-full text-sm font-semibold"
+                          class="inline-block post-meta rounded-full text-sm font-semibold"
                           style="text-decoration:none">
                           #{{post.category}}
                        </a>
                 </span>
 
-                <div class="align-center inline-block bg-blue text-white rounded-full px-3 py-1 text-sm font-semibold mr-2">
+                <div class="align-center inline-block post-meta post-meta rounded-full px-3 py-1 text-sm font-semibold mr-2">
                     Comments: 
                       <span class="fb-comments-count" data-href="https://www.nomadpad.io/{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
                       </span>
                 </div>
 
-                <span class="align-center inline-block bg-blue text-white rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">{{post.pub_date}}</span>
+                <span class="align-center inline-block post-meta post-meta rounded-full px-3 py-1 text-sm font-semibold  mr-2">{{post.pub_date}}</span>
 
                 
               </div>
@@ -54,7 +60,6 @@
             </div>
           </div>
         </div>
-      
       {% endif %}
     {% endfor %}
 {% endblock content %}
