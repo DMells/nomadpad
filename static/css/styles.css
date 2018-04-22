@@ -238,8 +238,8 @@ img {
   max-width: 100%;
 }
 
-post_body img{
-  max-width: 50%;
+#post_body img{
+  max-width: 75%;
 }
 
 /**
