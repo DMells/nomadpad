@@ -18,19 +18,19 @@
 	<div class="flex justify-center">
 {# If there is actually a previous post, use this CSS styling #}
 		{% if previousPostSlug %}		
-  			<button class="bg-blue-light hover:bg-blue font-bold py-2 px-4 mr-3 rounded-l">
+  			<button class="blog-bg-dark-purple hover:bg-blue font-bold py-2 px-4 mr-3 rounded-l">
 		{% else %}
 {# If there isn't a previous post, use this CSS styling (invisible)  #}
-  			<button class=" invisible bg-blue-light hover:bg-blue font-bold py-2 px-4 mr-3 rounded-l">	
+  			<button class=" invisible blog-bg-dark-purple hover:bg-blue font-bold py-2 px-4 mr-3 rounded-l">	
 		{% endif %}
     		<a class="no-underline text-white" href="{% url 'getPost' postSlug=previousPostSlug parentSlug=post.category.parentSlug catSlug=post.category.catSlug %}"> &lArr; Prev. Post </a>
   			</button>
  
 
   		{% if nextPostSlug %}
-  			<button class="bg-blue-light hover:bg-blue font-bold py-2 px-4 rounded-r">
+  			<button class="blog-bg-dark-purple hover:bg-blue font-bold py-2 px-4 rounded-r">
   		{% else %}
-  			<button class=" invisible bg-blue-light hover:bg-blue font-bold py-2 px-4 rounded-r">
+  			<button class=" invisible blog-bg-dark-purple hover:bg-blue font-bold py-2 px-4 rounded-r">
   		{% endif %}
 			<a  href="{% url 'getPost' postSlug=nextPostSlug parentSlug=post.category.parentSlug catSlug=post.category.catSlug %}" class=" text-white no-underline">Next Post &rArr; </a>
 			</button>
