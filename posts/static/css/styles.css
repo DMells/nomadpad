@@ -235,6 +235,11 @@ audio:not([controls]) {
 
 img {
   border-style: none;
+  max-width: 100%;
+}
+
+#post_body img{
+  max-width: 75%;
 }
 
 /**
@@ -572,9 +577,7 @@ textarea {
   resize: vertical;
 }
 
-img {
-  max-width: 100%;
-}
+
 
 button,
 input,

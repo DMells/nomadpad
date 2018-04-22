@@ -8,10 +8,14 @@
 		<h3 class="text-3xl text-center pt-6">
 			{{post.title}}
 		</h3><br>
-		<div class="tracking-wide text-center">
+		<div id="post_body" class="tracking-wide text-center">
 			<em>{{post.summary}}</em>
-		</div class="border w-auto h-auto"><br><br>
-		{{post.body|safe}}
+			
+			<br><br>
+
+			{{post.body|safe}}
+		</div>
+		
 	</div><br><br>
 
 {# Previous post button #}
