@@ -11,6 +11,7 @@ header {
     top: 0;
     width: 100%;
     background-color:#3D305E;
+    z-index: 1;
 }
 
 /*-------------------------------------- */
