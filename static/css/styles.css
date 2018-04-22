@@ -1,3 +1,4 @@
+
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
@@ -7,7 +8,7 @@
  *
  * If using `postcss-import`, you should import this line from it's own file:
  *
- * @import "./tailwind-preflight.css";
+@import "./tailwind-preflight.css";
  *
  * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
  */
@@ -233,14 +234,7 @@ audio:not([controls]) {
  * Remove the border on images inside links in IE 10-.
  */
 
-img {
-  border-style: none;
-  max-width: 100%;
-}
 
-#post_body img{
-  max-width: 50%;
-}
 
 /**
  * Hide the overflow in IE.

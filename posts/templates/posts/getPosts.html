@@ -24,7 +24,7 @@
         
           <div class="w-95% md:max-w-md rounded overflow-hidden shadow-lg mb-6 my-6 m-6">
             <a href="{% url 'getPost' parentSlug=post.category.parentSlug catSlug=post.category.catSlug postSlug=post.postSlug %}">
-    		      <img src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
+    		      <img id='getPostsImg' src="{{ MEDIA.URL }} {{post.editedimage.url}}" alt="image-{{post.title}}"/>
             </a>
             
             <div class="px-6 blog-bg-light-purple py-4">

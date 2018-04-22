@@ -1,5 +1,22 @@
 
 
+@media only screen and (max-width: 767px) {
+  img{
+    max-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  img{
+    max-width: 65% !important;
+  }
+}
+
+#getPostsImg {
+  max-width: 100% !important;
+}
+
+
 ul {
 	list-style-type:none;
 
@@ -20,7 +37,7 @@ header img{
 }
 
 post_body img{
-  max-width: 50% !important;
+  max-width: 80% !important;
 }
 
 /*-------------------------------------- */
