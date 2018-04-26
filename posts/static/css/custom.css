@@ -1,8 +1,26 @@
+/*
+iframe {
+  max-width: 100% !important;
+}*/
+
 
 
 @media only screen and (max-width: 767px) {
   img, iframe{
     max-width: 100% !important;
+  }
+
+/*To make youtube videos take up full screen on mobile*/
+  iframe{
+    top:0px; 
+    left:0px; 
+    bottom:0px; 
+    right:0px; 
+    border:none; 
+    margin:0; 
+    padding:0; 
+    overflow:hidden; 
+    z-index:999999;
   }
 
 }

@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'', include('posts.urls')),
+    url(r'', include('contactme.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

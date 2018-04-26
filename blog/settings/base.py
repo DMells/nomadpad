@@ -22,7 +22,8 @@ MEDIA_URL = '/media/'
 
 ROOT_DIR = PROJECT_DIR
 
-TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'posts/templates')
+POSTS_TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'posts/templates')
+CONTACTME_TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'contactme/templates')
 
 CKEDITOR_UPLOAD_PATH = STATIC_ROOT
 CKEDITOR_IMAGE_BACKEND = 'pillow'
@@ -65,6 +66,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'django_archive',
+    'contactme',
     
 
 ]
@@ -85,7 +87,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [POSTS_TEMPLATE_DIR, CONTACTME_TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,13 +133,21 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home/'
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
+# LOGIN_REDIRECT_URL = 'home/'
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     )
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'dave@davemellor.com' 
+EMAIL_HOST_PASSWORD = 'gcgeybmdrgdlwqtv'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
