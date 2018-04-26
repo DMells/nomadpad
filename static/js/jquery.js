@@ -5,11 +5,14 @@ $(document).ready(function() {
 // NOTE : adding ; at the end of the actual toggle line makes it
 // not work! 
 // Clicking toggle button will slide down menu bar
+    $("#navbar").click( function(event){
+        $("#mynavbar").toggleClass('responsive')
+    });
 // If user clicks anywhere that isnt the dropdown button or the actual 
 // navbar, navbar will disappear
 	$(document).click( function(event){
     	if($(event.target).is("#mynavbar, #navbar") === false) {
-    		$("#mynavbar").slideToggle("slow");
+    		$("#mynavbar").removeClass('responsive')
     	}
     });
  
