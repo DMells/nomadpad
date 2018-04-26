@@ -3,20 +3,15 @@ $(document).ready(function() {
     $('#content').css('margin-top',contentPlacement);
 
 // NOTE : adding ; at the end of the actual toggle line makes it
-// not work!
-    $("#navbar").click( function(event){
-    	$("#mynavbar").toggleClass('responsive')
-    });
-
+// not work! 
+// Clicking toggle button will slide down menu bar
 // If user clicks anywhere that isnt the dropdown button or the actual 
 // navbar, navbar will disappear
 	$(document).click( function(event){
     	if($(event.target).is("#mynavbar, #navbar") === false) {
-    		$("#mynavbar").removeClass('responsive')
+    		$("#mynavbar").slideToggle("slow");
     	}
     });
  
  });
 
-
-   
