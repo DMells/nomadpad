@@ -39,17 +39,12 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
  	<body>
  	<header id="header" class="font-sans text-white md:flex">	
     		<h3 name="title" class="flex justify-between">
-    			<!--<a class="no-underline 
-    			hover:underline text-blue-dark" href={% url "getPosts" %}>
-    				.nomadpad
-   				</a>-->
-
    				  <a href="{% url 'getPosts' %}">
     				<img src="/media/primary_images/NPLOGO.png" class="p-2 w-1/3" />
             		</a>
 
   				<div class="block md:hidden p-2">
-				    <button id="navbar" class="flex items-center px-3 py-2 rounded text-teal-lighter border-white-light hover:text-white hover:border-white">
+				    <button id="navbartoggler" class="flex items-center px-3 py-2 rounded text-teal-lighter border-white-light hover:text-white hover:border-white">
 				      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><a href="">
 				      	Menu</a><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
 				    </button>
@@ -58,7 +53,7 @@ CSS / JS should be edited in posts/static (which will show up in-browser immedia
    			
 			<nav class="md:w-3/4 pr-4 flex items-center">
 		    	<ul class="md:flex md:w-full md:flex-row md:justify-end">
-		    		<div id="mynavbar" class="navbar md:block md:flex">
+		    		<div id="navbaractual" class="navbar md:block md:flex">
 		    		<li class="dropdown">
 		    			<button class="button min-h-full dropdown dropbtn">
 		    				<a class="">

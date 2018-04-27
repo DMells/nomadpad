@@ -92,6 +92,9 @@ web scraping - particular articles i.e. travel. or plastic reduction, or ethical
 24/4/18:
 Make iframes on mobile automatically take up full screen WHEN clicked on. jquery?
 
+27/4/18:
+On hover of svg menu button, have the lines spin to a cross (on mouseenter, on mouseleave)
+
 *****COMPLETED*****
 {# 21/11:
 Sort links/slugs to have posts set up properly: 
