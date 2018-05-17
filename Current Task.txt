@@ -19,8 +19,6 @@ Days on the road counter
 30/1/18:
 see booking.com for javascript movement of each property when you mouse over it.
 
-7/2/18 : 
-add next and prev post buttons - see tailwind buttons page
 
 13/2/18:
 Add a "who ive met so far - and where they are from"
@@ -144,3 +142,10 @@ Posts by category - the hide if unfinished doesnt work, possibly as not linked t
 
 {# 17/3/18:
 "secure the django admin" - chapter in 2 scoops. #}
+
+{# 7/2/18 : 
+add next and prev post buttons - see tailwind buttons page
+ #}
+
+ {# 27/4/18:
+ Enable slider toggle of menu, revert if user clicks off the page #}
