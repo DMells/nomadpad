@@ -41,6 +41,7 @@ class Post(models.Model):
     body = RichTextUploadingField()
     pub_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, default=True)
+    authorSlug = models.SlugField(blank=True)
     postSlug = models.SlugField(blank=True)
     editedimage = ProcessedImageField(upload_to="primary_images", null=True,
                                 processors = [Transpose()],
@@ -50,6 +51,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         self.postSlug = slugify(self.title)
+        self.authorSlug = slugify(self.author)
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
