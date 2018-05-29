@@ -8,6 +8,7 @@ iframe {
 @media only screen and (max-width: 767px) {
   img, iframe{
     max-width: 100% !important;
+    height: auto;
   }
 
 /*To make youtube videos take up full screen on mobile*/
@@ -28,12 +29,14 @@ iframe {
 @media only screen and (min-width: 768px) {
   img, iframe{
     max-width: 65% !important;
+    height: auto;
   }
 
 }
 
 #getPostsImg {
   max-width: 100% !important;
+  height: auto;
 }
 
 
@@ -58,6 +61,7 @@ header img{
 
 post_body img{
   max-width: 80% !important;
+  height: auto;
 }
 
 /*-------------------------------------- */
